@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLAN Olympiad Advanced Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
+}
+.quiz-container{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+padding:30px;
+border-radius:20px;
+width:100%;
+max-width:750px;
+box-shadow:0 20px 50px rgba(0,0,0,0.6);
+}
+.header{
+display:flex;
+justify-content:space-between;
+margin-bottom:20px;
+font-size:14px;
+opacity:0.9;
+}
+.question{
+font-size:18px;
+margin-bottom:15px;
+font-weight:600;
+}
+.option{
+background:rgba(255,255,255,0.08);
+padding:12px;
+margin:8px 0;
+border-radius:12px;
+cursor:pointer;
+transition:0.3s;
+}
+.option:hover{background:#38bdf8;}
+button{
+margin-top:15px;
+padding:10px 20px;
+border:none;
+border-radius:30px;
+font-weight:600;
+cursor:pointer;
+background:white;
+color:#0f172a;
+}
+.result{text-align:center;}
+.badge{font-size:22px;margin-top:10px;}
+</style>
+</head>
+<body>
+
+<div class="quiz-container" id="quizBox">
+<div class="header">
+<div>Level: <span id="levelName"></span></div>
+<div>Time: <span id="timer"></span></div>
+</div>
+<div class="question" id="questionText"></div>
+<div id="optionsBox"></div>
+</div>
+
+<script>
+
+// =============================
+// ADVANCED QUESTION BANK
+// =============================
+
+const exploreQuestions = [
+{q:"Jika 3x + 5 = 20, maka nilai x adalah?",a:["3","4","5","6"],c:2},
+{q:"Jumlah sudut dalam segitiga sama kaki adalah?",a:["90°","180°","270°","360°"],c:1},
+{q:"Bilangan prima ke-6 adalah?",a:["11","13","17","19"],c:1},
+{q:"Hasil dari 2^5 × 2^3 ?",a:["2^8","2^15","2^2","2^16"],c:0},
+{q:"Jika rata-rata 5 bilangan adalah 12, maka totalnya?",a:["50","55","60","65"],c:2},
+{q:"Akar kuadrat 169 adalah?",a:["11","12","13","14"],c:2},
+{q:"Keliling lingkaran dengan r=7 (π=22/7)?",a:["44","154","88","22"],c:0},
+{q:"Jika 5 pekerja menyelesaikan tugas 4 hari, 10 pekerja butuh?",a:["1","2","3","4"],c:1},
+{q:"Faktor persekutuan terbesar 24 dan 36?",a:["6","12","18","24"],c:1},
+{q:"1/2 + 3/4 =",a:["5/4","4/6","2/3","1"],c:0}
+];
+
+const challengerQuestions = [
+{q:"Jika f(x)=2x²-3x+1, maka f(3) ?",a:["10","12","16","19"],c:1},
+{q:"Barisan: 2,6,12,20,... suku ke-5?",a:["28","30","32","35"],c:1},
+{q:"Jika determinan |2 3;1 4| ?",a:["5","8","3","2"],c:0},
+{q:"Probabilitas muncul angka pada dadu?",a:["1/2","1/3","1/6","1/4"],c:2},
+{q:"Jika log₁₀ 1000 =",a:["2","3","4","10"],c:1},
+{q:"Turunan dari 3x² ?",a:["6x","3x","9x","6"],c:0},
+{q:"Jika 2^x=32 maka x?",a:["4","5","6","3"],c:1},
+{q:"Kombinasi C(5,2) ?",a:["10","20","5","15"],c:0},
+{q:"Limit x→0 sin x / x ?",a:["0","1","∞","-1"],c:1},
+{q:"Integral ∫2x dx ?",a:["x²+C","2x²+C","x+C","x²/2"],c:0},
+{q:"Jika matriks identitas 2x2?",a:["[1 1;1 1]","[1 0;0 1]","[0 1;1 0]","[2 2;2 2]"],c:1},
+{q:"Modus 1,2,2,3,4?",a:["1","2","3","4"],c:1},
+{q:"Jumlah diagonal kubus?",a:["8","12","4","6"],c:1},
+{q:"Energi kinetik rumus?",a:["1/2mv²","mv","mgh","v²"],c:0},
+{q:"pH netral?",a:["5","6","7","8"],c:2}
+];
+
+const masterQuestions = [
+{q:"Jika x² - 5x + 6 = 0, maka akar-akarnya?",a:["2 & 3","1 & 6","-2 & -3","3 & 4"],c:0},
+{q:"Jika A∩B = {2,3}, A={1,2,3}, maka B minimal?",a:["{2,3}","{1,2,3}","{3}","{1,2}"],c:0},
+{q:"Nilai maksimum fungsi -x²+4x ?",a:["4","2","0","8"],c:0},
+{q:"Jika cos θ = 1/2, θ?",a:["30°","45°","60°","90°"],c:2},
+{q:"Deret geometri a=2 r=3 suku ke-4?",a:["54","27","18","81"],c:0},
+{q:"Jika 3 orang duduk melingkar, banyak susunan?",a:["2","3","6","1"],c:0},
+{q:"Jika peluang hujan 0.3 maka tidak hujan?",a:["0.3","0.7","1","0"],c:1},
+{q:"Eigenvalue matriks identitas?",a:["1","0","2","-1"],c:0},
+{q:"Turunan sin x?",a:["cos x","-cos x","sin x","-sin x"],c:0},
+{q:"Integral 1/x dx ?",a:["ln|x|+C","x+C","1/x²","x²"],c:0},
+{q:"Jika lim x→∞ 1/x ?",a:["0","1","∞","-1"],c:0},
+{q:"Bilangan kompleks i² ?",a:["1","-1","i","0"],c:1},
+{q:"Jika 4! ?",a:["24","16","8","12"],c:0},
+{q:"Matrix inverse dari identitas?",a:["I","0","-I","2I"],c:0},
+{q:"Jika varian kecil berarti?",a:["Data seragam","Data menyebar","Acak","Ekstrem"],c:0},
+{q:"Jika log₂8 ?",a:["2","3","4","8"],c:1},
+{q:"Jika peluang 0.25 artinya?",a:["25%","50%","75%","100%"],c:0},
+{q:"Turunan e^x ?",a:["e^x","xe^x","x","1"],c:0},
+{q:"Jumlah sisi dodecagon?",a:["10","12","14","8"],c:1},
+{q:"Integral cos x ?",a:["sin x + C","-sin x","cos x","x"],c:0}
+];
+
+// =============================
+// LEVEL CONFIG
+// =============================
+
+const urlParams = new URLSearchParams(window.location.search);
+const level = urlParams.get('level') || 'explore';
+
+let questions;
+let timePerQuestion;
+
+if(level==="explore"){
+questions=exploreQuestions;
+timePerQuestion=60;
+document.getElementById("levelName").innerText="Explorer 🌱";
+}
+else if(level==="level2"){
+questions=challengerQuestions;
+timePerQuestion=120;
+document.getElementById("levelName").innerText="Challenger ⚡";
+}
+else{
+questions=masterQuestions;
+timePerQuestion=180;
+document.getElementById("levelName").innerText="Master 🔥";
+}
+
+// =============================
+// ENGINE
+// =============================
+
+let currentQuestion=0;
+let score=0;
+let timerInterval;
+let timeLeft;
+
+function startTimer(){
+timeLeft=timePerQuestion;
+updateTimer();
+timerInterval=setInterval(()=>{
+timeLeft--;
+updateTimer();
+if(timeLeft<=0){
+nextQuestion();
+}
+},1000);
+}
+
+function updateTimer(){
+let m=Math.floor(timeLeft/60);
+let s=timeLeft%60;
+document.getElementById("timer").innerText=
+m+":"+(s<10?"0"+s:s);
+}
+
+function loadQuestion(){
+clearInterval(timerInterval);
+const q=questions[currentQuestion];
+document.getElementById("questionText").innerText=
+(currentQuestion+1)+". "+q.q;
+
+const box=document.getElementById("optionsBox");
+box.innerHTML="";
+
+q.a.forEach((opt,i)=>{
+const div=document.createElement("div");
+div.className="option";
+div.innerText=opt;
+div.onclick=()=>{
+if(i===q.c)score++;
+setTimeout(nextQuestion,500);
+};
+box.appendChild(div);
+});
+
+startTimer();
+}
+
+function nextQuestion(){
+clearInterval(timerInterval);
+currentQuestion++;
+if(currentQuestion<questions.length){
+loadQuestion();
+}else{
+showResult();
+}
+}
+
+function showResult(){
+let percent=Math.round((score/questions.length)*100);
+let badge="";
+
+if(percent===100)badge="🔥 Grand Master";
+else if(percent>=90)badge="👑 Elite Scholar";
+else if(percent>=75)badge="🚀 Skilled Thinker";
+else if(percent>=60)badge="⭐ Rising Mind";
+else badge="🌱 Keep Learning";
+
+document.getElementById("quizBox").innerHTML=`
+<div class="result">
+<h2>Quiz Completed!</h2>
+<p>Score: ${score} / ${questions.length}</p>
+<p>Accuracy: ${percent}%</p>
+<div class="badge">${badge}</div>
+<br>
+<button onclick="window.location.href='pilih-level.html'">Kembali ke Level</button>
+</div>
+`;
+}
+
+loadQuestion();
+
+</script>
+</body>
+</html>

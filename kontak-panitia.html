@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak Panitia - FLAN Olympiad</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #222;
+  background-color: #f8f9fa;
+}
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+header {
+  background-color: #0B3C5D;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+header img {
+  max-width: 120px;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+header p {
+  margin: 5px 0 0 0;
+  font-size: 16px;
+}
+
+main {
+  padding: 30px 20px;
+  background-color: #fff;
+  margin-top: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+h2 {
+  color: #0B3C5D;
+}
+
+.contact-info p, .contact-info a {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #222;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+form {
+  margin-top: 20px;
+}
+form input, form textarea, form button {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+form button {
+  background-color: #0B3C5D;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+form button:hover {
+  background-color: #09406f;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  background-color: #e3f2f1;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Floating WhatsApp CTA */
+#waCTA {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: #fff;
+  border-radius: 50px;
+  padding: 15px 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 1000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s;
+}
+#waCTA:hover {
+  transform: scale(1.1);
+}
+#waCTA img {
+  width: 24px;
+  margin-right: 10px;
+}
+}
+  .buttons {
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap: wrap;
+  }
+  .buttons a {
+    padding:12px 25px;
+    text-decoration:none;
+    background:#00796b;
+    color:white;
+    border-radius:30px;
+    font-weight:600;
+    transition:0.3s;
+  }
+  .buttons a:hover {
+    background:#004d40;
+</style>
+</head>
+<body>
+
+<div class="container">
+<header>
+  <img src="assets/logo.jpg"" alt="Logo FLAN Olympiad">
+  <h1>FLAN OLYMPIAD</h1>
+  <p>part of PT Gilang Aksara Cendekia</p>
+</header>
+
+<main>
+<h2>Hai kak 👋</h2>
+<p>Untuk menghubungi kami, silahkan pilih salah satu cara di bawah ini atau isi formulir kontak:</p>
+
+<div class="contact-info">
+  <p><strong>Email:</strong> <a href="mailto:cs_gac.idn@yahoo.com">cs_gac.idn@yahoo.com</a></p>
+  <p><strong>WhatsApp:</strong> <a href="https://wa.me/6283832328009" target="_blank">083832328009</a></p>
+  <p><strong>Telepon:</strong> 083196269752</p>
+  <p><strong>Instagram:</strong> <a href="https://instagram.com/flan_olympiad.idn" target="_blank">@flan_olympiad.idn</a>, 
+     <a href="https://instagram.com/gac.idn" target="_blank">@gac.idn</a></p>
+  <p><strong>Alamat:</strong> Jl. Lemah Luhur No. 14, Desa Sindangsari, Kecamatan Paseh, Kabupaten Bandung, Indonesia</p>
+</div>
+
+<h2>Formulir Kontak</h2>
+<form id="contactForm">
+  <input type="text" name="nama" placeholder="Nama kamu" required>
+  <input type="email" name="email" placeholder="Email kamu" required>
+  <textarea name="pesan" placeholder="Tulis pesanmu..." rows="5" required></textarea>
+  <button type="submit">Kirim Pesan</button>
+</form>
+<p><small>Catatan: Pesan akan dikirim via email atau WhatsApp resmi FLAN Olympiad.</small></p>
+</main>
+
+<footer>
+<p>Copyright © FLAN Olympiad</p>
+<p>Part of PT Gilang Aksara Cendekia</p>
+<p>Bandung - Republik Indonesia</p>
+</footer>
+</div>
+
+<!-- Floating WA CTA -->
+<a id="waCTA" href="https://wa.me/6283832328009" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA"> Hubungi Kami
+</a>
+
+<div class="buttons">
+    <a href="index.html">Kembali ke Beranda</a>
+  </div>
+</div>
+<script>
+// Form submission via email / WhatsApp
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const nama = this.nama.value;
+  const email = this.email.value;
+  const pesan = this.pesan.value;
+
+  // Link WA dengan teks pesan
+  const waLink = `https://wa.me/6283832328009?text=Nama:%20${encodeURIComponent(nama)}%0AEmail:%20${encodeURIComponent(email)}%0APesan:%20${encodeURIComponent(pesan)}`;
+  
+  if(confirm("Kirim pesan via WhatsApp? Klik OK untuk lanjut.")) {
+    window.open(waLink, '_blank');
+  } else {
+    // fallback ke email
+    window.location.href = `mailto:cs_gac.idn@yahoo.com?subject=Pesan dari ${encodeURIComponent(nama)}&body=${encodeURIComponent(pesan)}%0A%0AEmail: ${encodeURIComponent(email)}`;
+  }
+
+  this.reset();
+});
+</script>
+
+</body>
+</html>

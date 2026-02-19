@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Your Challenge - FLAN Olympiad</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    .back-btn {
+      text-decoration: none;
+      color: white;
+      font-size: 14px;
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      opacity: 1;
+      transform: translateX(-3px);
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      opacity: 0.7;
+      margin-bottom: 40px;
+    }
+
+    .card-wrapper {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      width: 280px;
+      border-radius: 20px;
+      transition: 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    }
+
+    .icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .level-title {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 20px;
+    }
+
+    .info {
+      font-size: 13px;
+      opacity: 0.6;
+      margin-bottom: 20px;
+    }
+
+    .start-btn {
+      padding: 10px 20px;
+      border-radius: 30px;
+      border: none;
+      background: white;
+      color: #0f172a;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .start-btn:hover {
+      background: #38bdf8;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+
+    @media (max-width: 768px) {
+      .card-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img src="assets/logo.jpg" alt="FLAN Logo">
+    <a href="index.html" class="back-btn">← Back to Home</a>
+  </header>
+
+  <div class="container">
+    <h1>Choose Your Challenge</h1>
+    <p class="subtitle">Select your level and begin your journey</p>
+
+    <div class="card-wrapper">
+
+      <!-- Explorer -->
+      <div class="card" onclick="location.href='soal-quiz.html?level=explore'">
+        <div class="icon">🌱</div>
+        <div class="level-title">Explorer</div>
+        <div class="description">Perfect for warming up your brain.</div>
+        <div class="info">10 Questions • Relaxed Mode</div>
+        <button class="start-btn">Start Challenge</button>
+      </div>
+
+      <!-- Challenger -->
+<div class="card" onclick="location.href='soal-quiz.html?level=level2'">
+        <div class="icon">⚡</div>
+        <div class="level-title">Challenger</div>
+        <div class="description">Step up and test your strategy.</div>
+        <div class="info">15 Questions • Timed Mode</div>
+        <button class="start-btn">Start Challenge</button>
+      </div>
+
+      <!-- Master -->
+      <div class="card" onclick="location.href='soal-quiz.html?level=master'">
+        <div class="icon">🔥</div>
+        <div class="level-title">Master</div>
+        <div class="description">Only the bold survive.</div>
+        <div class="info">20 Questions • Strict Timer</div>
+        <button class="start-btn">Start Challenge</button>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    © 2026 FLAN Olympiad • Part of PT Gilang Aksara Cendekia
+  </footer>
+
+</body>
+</html>

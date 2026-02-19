@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Materi Olimpiade - FLAN Olympiad</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
+body {
+  background: linear-gradient(135deg, #f0f4c3, #e1f5fe);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  color:#1a1a1a;
+  padding:20px;
+}
+header {
+  width: 100%;
+  display:flex;
+  align-items:center;
+  padding:15px 30px;
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom:30px;
+}
+header img { height:50px; margin-right:15px; }
+header h1 { font-size:22px; font-weight:700; }
+
+.container { text-align:center; max-width:900px; width:100%; }
+
+.welcome {
+  font-size:16px;
+  margin-bottom:30px;
+}
+
+.cards { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; }
+
+.card {
+  background:white;
+  border-radius:20px;
+  width:250px;
+  padding:30px 20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  transition:0.3s;
+  cursor:pointer;
+}
+.card:hover { transform:translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,0.2); }
+
+.card img { width:100px; margin-bottom:20px; }
+
+.card button {
+  margin-top:15px;
+  padding:10px 20px;
+  border:none;
+  border-radius:25px;
+  background:#00796b;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+.card button:hover { background:#004d40; }
+
+footer {
+  margin-top:50px;
+  text-align:center;
+  font-size:14px;
+  color:#555;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="assets/logo.jpg" alt="FLAN Olympiad Logo">
+  <h1>FLAN Olympiad</h1>
+</header>
+
+<div class="container">
+  <div class="welcome">
+    Halo kak 👋, selamat datang di bagian Materi Olimpiade! Yuk, pilih materi sesuai jenjangmu untuk belajar lebih seru dan efektif.
+  </div>
+
+  <div class="cards">
+    <!-- Materi SD -->
+    <div class="card" onclick="location.href='materi-sd.html'">
+      <img src="https://cdn-icons-png.flaticon.com/512/8313/8313535.png">
+      <h3>Materi SD</h3>
+      <button>Akses Materi SD</button>
+    </div>
+
+    <!-- Materi SMP -->
+    <div class="card" onclick="location.href='materi-smp.html'">
+      <img src="https://cdn-icons-png.flaticon.com/512/4937/4937780.png">
+      <h3>Materi SMP</h3>
+      <button>Akses Materi SMP</button>
+    </div>
+
+    <!-- Materi SMA -->
+    <div class="card" onclick="location.href='materi-sma.html'">
+      <img src="https://cdn-icons-png.flaticon.com/512/1944/1944977.png">
+      <h3>Materi SMA</h3>
+      <button>Akses Materi SMA</button>
+    </div>
+
+    <!-- Beranda -->
+    <div class="card" onclick="location.href='index.html'">
+      <img src="https://cdn-icons-png.flaticon.com/512/1946/1946488.png">
+      <h3>Beranda</h3>
+      <button>Kembali ke Halaman Utama</button>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  Copyright © FLAN Olympiad 2026<br>
+  Part of PT Gilang Aksara Cendekia
+</footer>
+
+</body>
+</html>

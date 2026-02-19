@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLAN Olympiad Registration</title>
+
+<style>
+body{
+  font-family:'Segoe UI',sans-serif;
+  margin:0;
+  background:linear-gradient(135deg,#1e3c72,#2a5298);
+}
+
+.container{
+  max-width:750px;
+  margin:20px auto;
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.header{
+  text-align:center;
+}
+
+.header img{
+  width:80px;
+}
+
+.header h1{
+  margin:5px 0;
+  color:#1e3c72;
+  font-size:20px;
+}
+
+label{
+  font-weight:600;
+  margin-top:12px;
+  display:block;
+}
+
+input,select{
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+.checkbox-group{
+  margin-top:10px;
+  font-size:14px;
+}
+
+.checkbox-group input{
+  width:auto;
+  margin-right:5px;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  margin-top:20px;
+  border:none;
+  border-radius:10px;
+  background:#1e3c72;
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#2a5298;
+}
+
+.footer{
+  text-align:center;
+  font-size:13px;
+  margin-top:20px;
+  color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+      <img src="assets/logo.jpg" alt="Logo">
+<h1>FORM PENDAFTARAN OLMPIADE NASIONAL</h1>
+<p>yang diselenggarakan oleh<br>Flan olympiad<br></p>
+</div>
+
+<form id="form">
+
+<label>Perlombaan</label>
+<select id="event" required onchange="updateBidang()">
+<option value="">Pilih Olimpiade</option>
+<option value="FNMO">FLAN National Mathematics Olympiad</option>
+<option value="FNSO">FLAN National Science Olympiad</option>
+<option value="FNAO">FLAN National Academic Olympiad</option>
+</select>
+
+<label>Bidang Lomba</label>
+<select id="bidang" required>
+<option value="">Pilih Bidang</option>
+</select>
+
+<label>Email</label>
+<input type="email" required>
+
+<label>Nama Lengkap</label>
+<input type="text" id="nama" required>
+
+<label>Nomor WA</label>
+<input type="text" required>
+
+<label>Asal Sekolah</label>
+<input type="text" id="sekolah" required>
+
+<label>Asal Provinsi</label>
+<input type="text" required>
+
+<label>Asal Kabupaten</label>
+<input type="text" required>
+
+<label>Tanggal Lahir</label>
+<input type="date" required>
+
+<label>Jenjang Pendidikan</label>
+<select id="jenjang" required>
+<option value="">Pilih Jenjang</option>
+<option>SD</option>
+<option>SMP</option>
+<option>SMA</option>
+</select>
+
+<label>File Kartu Identitas</label>
+<p>digunakan untuk memveripikasi kebenaran data,file kartu identitas dapat berupa raport,kartu pelajar,kartu identitas anak,kartu anggota pramuka.dan lainnya</p>
+<input type="file" required>
+
+<label>bukti follow akun instagram @gac.idn</label>
+<input type="file" required>
+
+<label>bukti follow akun instagram @flan_olympiad.idn</label>
+<input type="file" required>
+
+<label>bukti share poster lomba ke instastory</label>
+<input type="file" required>
+
+<label>bukti share poster ke grup whatsapp</label>
+<input type="file" required>
+
+<div class="checkbox-group">
+<input type="checkbox" id="setuju1" required>
+Saya bersedia mematuhi seluruh aturan yang berlaku.
+</div>
+
+<div class="checkbox-group">
+<input type="checkbox" required>
+Saya menyatakan sudah membaca buku panduan.
+</div>
+
+<div class="checkbox-group">
+<input type="checkbox" required>
+Segala kelalaian peserta bukan tanggung jawab panitia.
+</div>
+
+<button type="button" onclick="kirimWA()">DAFTAR SEKARANG</button>
+
+</form>
+
+<div class="footer">
+© 2026 FLAN Olympiad | part PT Gilang aksara cendekia
+</div>
+
+</div>
+
+<script>
+
+const bidangData = {
+  FNMO:["SD - MATEMATIKA","SMP - MATEMATIKA","SMA - MATEMATIKA"],
+  FNSO:["SD - FISIKA","SMP - FISIKA","SMA - FISIKA","SD - KIMIA","SMP - KIMIA","SMA - KIMIA","SD - BIOLOGI","SMP - BIOLOGI","SMA - BIOLOGI"],
+  FNAO:["SD - IPA","SMP - IPA","SMA - IPA","SD - IPS","SMP - IPS","SMA - IPS","SD - MATEMATIKA","SMP - MATEMATIKA","SMA - MATEMATIKA"]
+};
+
+function updateBidang(){
+  let event=document.getElementById("event").value;
+  let bidang=document.getElementById("bidang");
+  bidang.innerHTML="<option value=''>Pilih Bidang</option>";
+  if(bidangData[event]){
+    bidangData[event].forEach(function(item){
+      bidang.innerHTML+=`<option>${item}</option>`;
+    });
+  }
+}
+
+function generateUser(){
+  return "FLAN"+Math.floor(1000+Math.random()*9000);
+}
+
+function generatePass(){
+  return Math.random().toString(36).slice(-6);
+}
+
+function kirimWA(){
+
+if(!document.getElementById("form").checkValidity()){
+  alert("Harap isi semua kolom dan centang persetujuan!");
+  return;
+}
+
+let nama=document.getElementById("nama").value;
+let event=document.getElementById("event").value;
+let bidang=document.getElementById("bidang").value;
+let sekolah=document.getElementById("sekolah").value;
+let jenjang=document.getElementById("jenjang").value;
+
+let username=generateUser();
+let password=generatePass();
+
+let jadwal="", grup="";
+
+if(event=="FNMO"){
+  jadwal="07 Maret 2026 | 10.00-10.50";
+  grup="https://chat.whatsapp.com/CiWsbbu8sDk7d2ECE6i1p9";
+}
+if(event=="FNSO"){
+  jadwal="28 Maret 2026 | Sesuai bidang";
+  grup="https://chat.whatsapp.com/Cvdoi5X3xCeErhKO7gLJGA";
+}
+if(event=="FNAO"){
+  jadwal="22 Februari 2026 | 09.00-11.50";
+  grup="https://chat.whatsapp.com/Dtb0JCdXAeyJ2yzutg5mRm";
+}
+
+let pesan=`Halo kak Fajar Panitia FLAN Olympiad,
+Perkenalkan saya ${nama} sudah mendaftar ${event}
+Dilaksanakan pada ${jadwal}
+
+✅ Data:
+Nama: ${nama}
+Jenjang: ${jenjang}
+Asal Sekolah: ${sekolah}
+Bidang Studi: ${bidang}
+
+Username: ${username}
+Password: ${password}
+
+Masuk grup:
+${grup}
+
+Telegram:
+https://t.me/+XOcxytk_uPg2NGI1
+
+Instagram:
+@flan_olympiad.idn
+
+⛔ PESAN INI JANGAN SAMPAI HILANG`;
+
+let url="https://wa.me/6283832328009?text="+encodeURIComponent(pesan);
+window.open(url,"_blank");
+
+}
+</script>
+
+</body>
+</html>

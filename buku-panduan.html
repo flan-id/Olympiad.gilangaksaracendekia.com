@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buku Panduan Nasional</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#f8fafc,#e2e8f0);
+  padding:40px 20px;
+  color:#1e293b;
+}
+
+/* HEADER */
+header{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+header h1{
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+header p{
+  color:#64748b;
+}
+
+/* SEARCH */
+.search-box{
+  max-width:600px;
+  margin:0 auto 40px auto;
+}
+
+.search-box input{
+  width:100%;
+  padding:12px 15px;
+  border-radius:12px;
+  border:none;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  font-size:14px;
+}
+
+/* CARD GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+
+/* CARD */
+.card{
+  padding:20px;
+  border-radius:20px;
+  color:white;
+  box-shadow:0 15px 35px rgba(0,0,0,0.15);
+  transition:0.3s ease;
+  cursor:pointer;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.card h2{
+  font-size:18px;
+  margin-bottom:10px;
+}
+
+.card p{
+  font-size:14px;
+  line-height:1.5;
+}
+
+/* WARNA CERAH */
+.c1{background:linear-gradient(135deg,#3b82f6,#1d4ed8);}
+.c2{background:linear-gradient(135deg,#22c55e,#15803d);}
+.c3{background:linear-gradient(135deg,#f97316,#c2410c);}
+.c4{background:linear-gradient(135deg,#ec4899,#be185d);}
+.c5{background:linear-gradient(135deg,#8b5cf6,#6d28d9);}
+.c6{background:linear-gradient(135deg,#14b8a6,#0f766e);}
+.c7{background:linear-gradient(135deg,#eab308,#a16207);}
+.c8{background:linear-gradient(135deg,#ef4444,#991b1b);}
+
+/* FAQ */
+.faq-section{
+  margin-top:60px;
+}
+
+.faq-item{
+  background:white;
+  margin-bottom:10px;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.faq-question{
+  padding:15px;
+  font-weight:600;
+  cursor:pointer;
+  background:#2563eb;
+  color:white;
+}
+
+.faq-answer{
+  display:none;
+  padding:15px;
+  font-size:14px;
+  background:#f1f5f9;
+}
+
+/* FOOTER */
+footer{
+  margin-top:60px;
+  text-align:center;
+  font-size:13px;
+  color:#64748b;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Buku Panduan Nasional</h1>
+<p>Dokumen Resmi Pedoman Kegiatan Tingkat Nasional</p>
+</header>
+
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Cari isi panduan...">
+</div>
+
+<div class="grid" id="cardContainer">
+
+<div class="card c1">
+<h2>Profil Lembaga</h2>
+<p>
+FLAN Olympiad merupakan platform kompetisi dan pengembangan akademik berskala nasional yang diselenggarakan sebagai bagian dari entitas resmi berbadan hukum PT Gilang Aksara Cendekia yang berdomisili di Kabupaten Bandung, Republik Indonesia. Lembaga ini didirikan dengan semangat menghadirkan ekosistem pembelajaran dan kompetisi yang tidak hanya berorientasi pada capaian nilai semata, tetapi juga pada pembentukan karakter, integritas, serta daya saing generasi muda Indonesia di tingkat nasional maupun internasional.
+
+Sebagai lembaga yang bergerak di bidang pendidikan dan pengembangan potensi pelajar, FLAN Olympiad mengintegrasikan pendekatan kompetisi, literasi akademik, serta pemanfaatan teknologi digital dalam setiap pelaksanaan programnya. Kami memahami bahwa pendidikan di era modern tidak lagi bersifat satu arah, melainkan kolaboratif, adaptif, dan berbasis inovasi. Oleh karena itu, seluruh sistem yang kami bangun dirancang untuk menjamin transparansi, objektivitas penilaian, serta aksesibilitas yang luas bagi peserta dari berbagai daerah di Indonesia.
+
+FLAN Olympiad tidak hanya menyelenggarakan kompetisi di bidang sains dan matematika, tetapi juga mencakup berbagai cabang keilmuan seperti teknologi, bahasa, sosial, keagamaan, serta bidang-bidang akademik lainnya yang relevan dengan perkembangan kurikulum nasional dan kebutuhan global. Setiap program dirancang dengan standar akademik yang terukur, proses seleksi yang adil, serta mekanisme evaluasi yang akuntabel.
+
+Dalam menjalankan operasionalnya, lembaga ini berpegang teguh pada prinsip tata kelola yang baik (good governance), kepatuhan terhadap regulasi pendidikan nasional, serta perlindungan data pribadi peserta didik sesuai dengan peraturan perundang-undangan yang berlaku di Indonesia. Kepercayaan peserta, orang tua, sekolah, dan mitra strategis menjadi fondasi utama dalam setiap keputusan dan kebijakan yang diambil.
+
+Kami juga berkomitmen untuk membangun ruang belajar yang inklusif dan suportif, di mana setiap peserta memiliki kesempatan yang sama untuk berkembang sesuai potensi masing-masing. Melalui sistem berbasis digital, peserta dapat mengakses materi, mengikuti kompetisi, serta memperoleh umpan balik pembelajaran secara terstruktur dan profesional.
+
+FLAN Olympiad percaya bahwa kompetisi bukan sekadar ajang perlombaan, melainkan sarana pembinaan karakter, peningkatan kepercayaan diri, serta latihan berpikir kritis dan analitis. Oleh karena itu, setiap kegiatan dirancang untuk mendorong sportivitas, etika akademik, dan semangat belajar berkelanjutan.
+
+Dengan dukungan manajemen yang profesional, dewan penyusun soal yang kompeten, serta sistem teknologi yang terus dikembangkan, FLAN Olympiad hadir sebagai platform pendidikan modern yang adaptif terhadap perubahan zaman. Kami terus melakukan evaluasi dan pengembangan berkelanjutan guna memastikan kualitas layanan tetap berada pada standar terbaik.
+
+Sebagai bagian dari PT Gilang Aksara Cendekia, FLAN Olympiad memiliki struktur organisasi yang jelas, mekanisme pertanggungjawaban yang transparan, serta komitmen kuat untuk menjadi mitra strategis dalam pengembangan talenta akademik Indonesia. Melalui kolaborasi dengan berbagai pihak, termasuk sekolah, komunitas pendidikan, dan pemangku kepentingan lainnya, kami berupaya menciptakan dampak positif yang berkelanjutan bagi dunia pendidikan nasional.
+
+Dengan semangat integritas, profesionalisme, dan inovasi, FLAN Olympiad berdiri sebagai ruang kompetisi dan pembelajaran yang terpercaya, modern, serta berorientasi pada masa depan generasi Indonesia.
+</p>
+</div>
+
+<div class="card c2">
+<h2>Landasan Hukum</h2>
+<p>
+FLAN Olympiad diselenggarakan berdasarkan prinsip kepatuhan hukum (compliance-based governance) dan berlandaskan pada ketentuan peraturan perundang-undangan Republik Indonesia yang berlaku di bidang pendidikan, perlindungan data pribadi, serta penyelenggaraan sistem elektronik. Seluruh aktivitas kelembagaan dilaksanakan dalam kerangka hukum nasional guna menjamin legitimasi, akuntabilitas, serta perlindungan terhadap seluruh pemangku kepentingan.
+
+Secara normatif, penyelenggaraan kegiatan pendidikan dan kompetisi akademik mengacu pada Undang-Undang Nomor 20 Tahun 2003 tentang Sistem Pendidikan Nasional, yang menegaskan bahwa pendidikan bertujuan untuk mengembangkan potensi peserta didik agar menjadi manusia yang beriman, berakhlak mulia, cakap, kreatif, dan bertanggung jawab. FLAN Olympiad menjalankan programnya sebagai bagian dari kontribusi terhadap tujuan pendidikan nasional tersebut, melalui pendekatan kompetisi edukatif dan pembinaan akademik.
+
+Dalam aspek penyelenggaraan kegiatan berbasis teknologi dan sistem digital, FLAN Olympiad tunduk pada Undang-Undang Nomor 11 Tahun 2008 tentang Informasi dan Transaksi Elektronik beserta perubahannya, serta peraturan pelaksanaannya, termasuk ketentuan mengenai penyelenggaraan sistem elektronik yang andal, aman, dan bertanggung jawab. Sistem yang digunakan dalam proses pendaftaran, pelaksanaan ujian, maupun distribusi hasil dirancang untuk memenuhi prinsip keamanan informasi dan integritas data.
+
+Terkait pengelolaan data peserta didik dan informasi pribadi lainnya, FLAN Olympiad berpedoman pada Undang-Undang Nomor 27 Tahun 2022 tentang Perlindungan Data Pribadi. Setiap proses pengumpulan, penggunaan, penyimpanan, dan pemusnahan data dilakukan secara sah, terbatas pada tujuan yang jelas, serta dilandasi persetujuan yang sah sesuai dengan peraturan perundang-undangan. Lembaga menjunjung tinggi asas transparansi, minimalisasi data, akurasi, pembatasan penyimpanan, serta keamanan pemrosesan data.
+
+Sebagai bagian dari PT Gilang Aksara Cendekia yang berbadan hukum resmi di Republik Indonesia, FLAN Olympiad memiliki legitimasi operasional yang sah berdasarkan ketentuan hukum perusahaan dan perizinan yang berlaku. Seluruh kegiatan dilaksanakan dalam kerangka tanggung jawab hukum korporasi, termasuk dalam hal pertanggungjawaban administratif, perdata, maupun aspek hukum lainnya yang relevan.
+
+Dalam konteks perlindungan anak dan peserta didik, lembaga ini turut memperhatikan ketentuan hukum yang berkaitan dengan hak-hak anak, keamanan peserta, serta kewajiban moral dan hukum untuk menciptakan lingkungan kegiatan yang aman, adil, dan bebas dari diskriminasi. Setiap kebijakan internal disusun dengan mempertimbangkan prinsip kepentingan terbaik bagi anak (best interest of the child).
+
+Apabila terdapat perubahan atau pembaruan regulasi nasional yang berdampak pada operasional lembaga, FLAN Olympiad berkomitmen untuk melakukan penyesuaian kebijakan dan prosedur internal guna memastikan kesesuaian yang berkelanjutan terhadap hukum yang berlaku. Kepatuhan terhadap regulasi bukan sekadar formalitas administratif, melainkan bagian integral dari tata kelola kelembagaan yang profesional dan berintegritas.
+
+Dengan landasan hukum yang kuat dan komprehensif, FLAN Olympiad menegaskan posisinya sebagai platform kompetisi dan pembelajaran yang sah secara hukum, transparan dalam operasional, serta bertanggung jawab terhadap peserta, orang tua, sekolah, dan seluruh mitra strategis di tingkat nasional.
+</p>
+</div>
+
+<div class="card c3">
+<h2>Visi & Misi</h2>
+<p>
+
+<strong>Visi</strong><br><br>
+Menjadi platform kompetisi dan pembelajaran nasional yang kredibel, inovatif, inklusif, serta berstandar tinggi dalam mengembangkan potensi generasi muda Indonesia di berbagai bidang keilmuan, karakter, dan kepemimpinan, dengan sistem yang transparan, objektif, serta berbasis teknologi modern.
+
+<br><br>
+
+<strong>Misi</strong><br><br>
+
+1. Menyelenggarakan kompetisi akademik dan non-akademik di berbagai bidang, termasuk sains, matematika, teknologi, sosial, bahasa, agama, dan bidang strategis lainnya, dengan sistem penilaian yang adil, terukur, serta berbasis integritas.<br><br>
+
+2. Mengembangkan ekosistem pembelajaran digital yang interaktif dan adaptif, sehingga peserta tidak hanya mengikuti lomba, tetapi juga mendapatkan pengalaman belajar yang bermakna, berkelanjutan, dan relevan dengan perkembangan zaman.<br><br>
+
+3. Membangun sistem seleksi dan evaluasi berbasis standar nasional yang objektif, transparan, serta dapat dipertanggungjawabkan secara akademik maupun administratif.<br><br>
+
+4. Mendorong terbentuknya generasi muda yang berpikir kritis, kreatif, kolaboratif, dan berkarakter kuat melalui pendekatan kompetisi yang sehat dan edukatif.<br><br>
+
+5. Menyediakan ruang pengembangan bakat dan minat yang inklusif, terbuka bagi seluruh pelajar Indonesia tanpa diskriminasi, dengan menjunjung tinggi prinsip kesetaraan dan akses pendidikan yang luas.<br><br>
+
+6. Mengintegrasikan teknologi dalam seluruh proses operasional, mulai dari pendaftaran, pelaksanaan ujian, hingga publikasi hasil, guna memastikan efisiensi, keamanan data, dan profesionalitas sistem.<br><br>
+
+7. Membangun kolaborasi strategis dengan sekolah, lembaga pendidikan, komunitas, serta mitra nasional untuk memperluas dampak positif dan memperkuat kontribusi terhadap kemajuan pendidikan Indonesia secara berkelanjutan.
+
+</p>
+</div>
+
+<div class="card c4">
+<h2>Struktur Organisasi</h2>
+<p>
+
+Struktur organisasi FLAN Olympiad dirancang secara profesional untuk memastikan tata kelola yang efektif, transparan, dan akuntabel dalam setiap penyelenggaraan program. Sebagai bagian dari PT Gilang Aksara Cendekia, sistem manajemen lembaga ini dibangun dengan prinsip good corporate governance, pembagian tugas yang jelas, serta mekanisme pengawasan internal yang terstruktur.
+
+<br><br>
+
+Pada tingkat strategis, organisasi dipimpin oleh <strong>Direktur Nasional</strong> yang bertanggung jawab atas arah kebijakan, pengambilan keputusan strategis, serta pengawasan keseluruhan operasional kegiatan. Direktur memastikan seluruh kegiatan berjalan sesuai visi, misi, standar profesional, dan ketentuan hukum yang berlaku di Indonesia.
+
+<br><br>
+
+Di bidang akademik, terdapat <strong>Dewan Juri dan Tim Kurikulum</strong> yang terdiri dari tenaga pendidik, akademisi, serta praktisi sesuai bidang kompetisi. Dewan ini bertugas menyusun kisi-kisi soal, standar penilaian, sistem evaluasi, serta menjaga integritas akademik dalam seluruh proses kompetisi. Seluruh proses penjurian dilakukan secara objektif, independen, dan terdokumentasi.
+
+<br><br>
+
+Dalam pelaksanaan teknis, <strong>Divisi Teknis dan Sistem Elektronik</strong> bertanggung jawab atas pengelolaan platform digital, keamanan sistem, manajemen data, serta kelancaran pelaksanaan ujian berbasis daring. Divisi ini memastikan sistem berjalan stabil, aman, dan sesuai standar perlindungan data pribadi yang berlaku.
+
+<br><br>
+
+Sementara itu, <strong>Divisi Administrasi dan Keuangan</strong> mengelola pendaftaran, dokumentasi, komunikasi resmi, serta pengelolaan keuangan kegiatan secara transparan dan tertib administrasi. Seluruh transaksi dan dokumen dicatat serta diaudit sesuai prinsip akuntabilitas lembaga nasional.
+
+<br><br>
+
+Selain itu, terdapat <strong>Divisi Hubungan Masyarakat dan Kemitraan</strong> yang bertugas membangun komunikasi dengan sekolah, orang tua, peserta, serta mitra pendidikan. Divisi ini juga menangani publikasi resmi, klarifikasi informasi, serta menjaga reputasi dan kredibilitas lembaga.
+
+<br><br>
+
+Struktur organisasi ini bersifat dinamis dan dapat disesuaikan dengan kebutuhan kegiatan, tanpa mengurangi prinsip profesionalisme, independensi penilaian, serta tanggung jawab hukum lembaga. Dengan pembagian peran yang jelas dan sistem kerja yang terintegrasi, FLAN Olympiad berkomitmen untuk menghadirkan penyelenggaraan kompetisi nasional yang tertib, transparan, dan berstandar tinggi.
+
+</p>
+</div>
+
+<div class="card c5">
+<h2>Kategori Lomba</h2>
+<p>
+
+FLAN Olympiad menghadirkan beragam kategori kompetisi yang dirancang untuk mengakomodasi potensi peserta didik di berbagai bidang keilmuan. Kategori lomba tidak terbatas pada satu rumpun ilmu tertentu, melainkan mencakup spektrum akademik dan pengembangan diri secara luas guna mendorong lahirnya generasi yang kompeten, adaptif, dan berdaya saing tinggi.
+
+<br><br>
+
+Pada bidang <strong>Matematika</strong>, kompetisi difokuskan pada penguatan logika, pemecahan masalah, numerasi tingkat lanjut, serta kemampuan berpikir analitis dan sistematis. Materi dirancang bertingkat mulai dari konsep dasar hingga aplikasi kompleks sesuai jenjang pendidikan.
+
+<br><br>
+
+Dalam kategori <strong>Sains</strong>, peserta diuji pada pemahaman konsep dan penerapan ilmu pengetahuan alam, termasuk Fisika, Kimia, dan Biologi. Soal dirancang untuk melatih penalaran ilmiah, interpretasi data, serta kemampuan analisis berbasis eksperimen dan fenomena nyata.
+
+<br><br>
+
+Kategori <strong>Bahasa</strong> mencakup kemampuan literasi, pemahaman bacaan, tata bahasa, serta komunikasi efektif. Kompetisi ini bertujuan meningkatkan daya pikir kritis, kemampuan argumentasi, serta kecakapan berbahasa secara akademik maupun praktis.
+
+<br><br>
+
+Pada bidang <strong>Teknologi</strong>, lomba dirancang untuk mengasah keterampilan berpikir komputasional, logika algoritma, pemahaman dasar pemrograman, serta wawasan teknologi digital yang relevan dengan perkembangan era industri dan transformasi digital.
+
+<br><br>
+
+Sementara itu, kategori <strong>Ilmu Sosial</strong> meliputi kajian sejarah, geografi, ekonomi, dan kewarganegaraan, dengan pendekatan analitis dan kontekstual. Peserta didorong untuk memahami dinamika sosial, kebijakan publik, serta fenomena global secara kritis dan objektif.
+
+<br><br>
+
+Selain kategori utama tersebut, FLAN Olympiad secara bertahap juga mengembangkan bidang tambahan seperti keagamaan, literasi finansial, kepemimpinan, dan inovasi kreatif guna memberikan ruang eksplorasi yang lebih luas bagi peserta didik Indonesia.
+
+<br><br>
+
+Seluruh kategori lomba disusun berdasarkan standar akademik yang terstruktur, disesuaikan dengan jenjang pendidikan, serta mengedepankan prinsip keadilan, objektivitas, dan transparansi dalam proses seleksi dan penilaian.
+
+</p>
+</div>
+<div class="card c6">
+<h2>Mekanisme Pendaftaran</h2>
+<p>
+
+Proses pendaftaran FLAN Olympiad dilaksanakan secara daring (online) melalui platform resmi yang dikelola oleh PT Gilang Aksara Cendekia. Sistem ini dirancang untuk memastikan kemudahan akses, akurasi data, serta keamanan informasi peserta sesuai dengan standar perlindungan data yang berlaku di Indonesia.
+
+<br><br>
+
+Tahap pertama adalah <strong>registrasi akun</strong>, di mana peserta atau orang tua/wali mengisi formulir pendaftaran dengan data yang benar, lengkap, dan dapat dipertanggungjawabkan. Data yang diminta meliputi identitas peserta, jenjang pendidikan, kategori lomba yang dipilih, serta informasi kontak aktif untuk keperluan komunikasi resmi.
+
+<br><br>
+
+Tahap kedua adalah <strong>verifikasi administratif</strong>. Pada tahap ini, sistem dan tim administrasi melakukan pengecekan kesesuaian data, validitas jenjang, serta kelengkapan persyaratan. Apabila ditemukan ketidaksesuaian atau kekurangan data, peserta akan dihubungi melalui email atau kontak resmi untuk melakukan perbaikan.
+
+<br><br>
+
+Tahap ketiga adalah <strong>konfirmasi pembayaran</strong> (apabila kegiatan berbayar). Peserta wajib melakukan pembayaran melalui metode resmi yang ditentukan dan mengunggah bukti transaksi sesuai prosedur. Tim administrasi akan melakukan verifikasi sebelum status kepesertaan dinyatakan aktif.
+
+<br><br>
+
+Setelah seluruh proses selesai, peserta akan menerima <strong>konfirmasi resmi melalui email</strong> yang berisi detail pelaksanaan, jadwal, tata tertib, serta akses ke sistem ujian atau kegiatan. Email tersebut menjadi bukti sah bahwa peserta telah terdaftar secara resmi dalam kegiatan FLAN Olympiad.
+
+<br><br>
+
+Seluruh tahapan pendaftaran terdokumentasi secara sistem elektronik untuk menjamin transparansi dan akuntabilitas. Penyelenggara berhak menolak atau membatalkan pendaftaran apabila ditemukan data tidak valid, pelanggaran ketentuan, atau ketidaksesuaian dengan persyaratan yang berlaku.
+
+<br><br>
+
+Dengan mengikuti mekanisme ini, peserta dianggap telah memahami dan menyetujui seluruh ketentuan administrasi yang berlaku dalam penyelenggaraan FLAN Olympiad.
+
+</p>
+</div>
+
+<div class="card c7">
+<h2>Sistem Penilaian</h2>
+<p>
+
+Sistem penilaian FLAN Olympiad dirancang secara objektif, transparan, dan berbasis standar akademik nasional. Seluruh proses evaluasi dilakukan menggunakan sistem digital terintegrasi yang memastikan akurasi hasil, konsistensi standar, serta meminimalkan potensi bias dalam penilaian.
+
+<br><br>
+
+Pada tahap awal, setiap kategori lomba memiliki <strong>kisi-kisi dan indikator kompetensi</strong> yang telah disusun oleh Dewan Juri dan Tim Kurikulum sesuai jenjang pendidikan. Kisi-kisi ini menjadi dasar penyusunan soal sekaligus standar evaluasi kemampuan peserta.
+
+<br><br>
+
+Untuk kategori berbasis pilihan ganda atau objektif, sistem melakukan <strong>penilaian otomatis (auto-scoring)</strong> yang langsung menghitung skor berdasarkan jawaban benar. Sistem ini menggunakan algoritma validasi untuk memastikan tidak terjadi kesalahan perhitungan.
+
+<br><br>
+
+Untuk kategori esai, studi kasus, atau proyek tertentu, penilaian dilakukan oleh <strong>Dewan Juri independen</strong> menggunakan rubrik terstruktur yang mencakup aspek ketepatan konsep, kedalaman analisis, kreativitas, serta ketepatan penyajian. Setiap penilaian terdokumentasi dan dapat ditelusuri secara administratif.
+
+<br><br>
+
+Hasil akhir peserta dihitung berdasarkan bobot nilai yang telah ditetapkan sebelum kompetisi berlangsung. Apabila terdapat beberapa tahap seleksi (penyisihan, semifinal, final), maka sistem akan mengakumulasi atau menyaring nilai sesuai mekanisme yang diumumkan secara resmi.
+
+<br><br>
+
+Untuk menjamin integritas, sistem juga menerapkan <strong>mekanisme pengawasan dan validasi</strong>, termasuk deteksi pola jawaban tidak wajar, pemeriksaan waktu pengerjaan, serta verifikasi teknis apabila diperlukan.
+
+<br><br>
+
+Seluruh hasil penilaian diumumkan melalui platform resmi dan dapat diakses peserta menggunakan akun masing-masing. Keputusan Dewan Juri bersifat final dan mengikat, kecuali terdapat kekeliruan administratif yang dapat dibuktikan secara sah.
+
+<br><br>
+
+Dengan sistem penilaian ini, FLAN Olympiad berkomitmen menghadirkan kompetisi yang adil, profesional, dan dapat dipertanggungjawabkan secara akademik maupun administratif.
+
+</p>
+</div>
+
+<div class="card c8">
+<h2>Kode Etik & Sanksi</h2>
+<p>
+
+FLAN Olympiad menjunjung tinggi prinsip kejujuran, integritas akademik, sportivitas, serta tanggung jawab dalam setiap pelaksanaan kegiatan. Seluruh peserta, orang tua/wali, panitia, dan pihak terkait wajib mematuhi Kode Etik yang telah ditetapkan sebagai standar perilaku selama proses pendaftaran, pelaksanaan kompetisi, hingga pengumuman hasil.
+
+<br><br>
+
+Setiap peserta wajib mengerjakan soal secara mandiri tanpa bantuan pihak lain, tanpa menggunakan perangkat atau sumber yang tidak diperbolehkan, serta tanpa melakukan manipulasi sistem dalam bentuk apa pun. Segala bentuk kecurangan, termasuk namun tidak terbatas pada plagiarisme, kerja sama tidak sah, penggunaan joki, kebocoran soal, atau eksploitasi celah teknis, merupakan pelanggaran serius terhadap integritas kompetisi.
+
+<br><br>
+
+Selain itu, peserta wajib menjaga etika komunikasi selama berinteraksi di platform resmi, termasuk dalam forum diskusi, layanan bantuan, maupun media sosial yang berkaitan dengan kegiatan. Tindakan penghinaan, penyebaran informasi palsu, ujaran kebencian, atau tindakan yang merugikan reputasi lembaga dapat dikenakan tindakan administratif sesuai ketentuan yang berlaku.
+
+<br><br>
+
+Pelanggaran terhadap Kode Etik akan dikenakan sanksi secara proporsional berdasarkan tingkat kesalahan yang dilakukan. Sanksi dapat berupa peringatan tertulis, pengurangan nilai, pembatalan hasil, diskualifikasi dari kompetisi, hingga pencabutan gelar atau sertifikat apabila terbukti terjadi pelanggaran serius.
+
+<br><br>
+
+Dalam hal ditemukan indikasi pelanggaran, Penyelenggara berhak melakukan investigasi internal, termasuk verifikasi teknis dan pemeriksaan data pendukung. Keputusan Dewan Juri dan/atau Penyelenggara bersifat final dan mengikat.
+
+<br><br>
+
+Penerapan Kode Etik ini bertujuan menjaga kualitas kompetisi, melindungi hak peserta yang berkompetisi secara jujur, serta memastikan FLAN Olympiad tetap menjadi platform akademik yang terpercaya dan berintegritas tinggi.
+
+</p>
+</div>
+
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+<h2 style="margin-bottom:15px;">FAQ (Frequently Asked Questions)</h2>
+
+<!-- 1 -->
+<div class="faq-item">
+<div class="faq-question">1. Apakah kegiatan ini berskala nasional?</div>
+<div class="faq-answer">Ya. Kegiatan dilaksanakan secara nasional dan terbuka untuk seluruh peserta dari berbagai daerah di Indonesia.</div>
+</div>
+
+<!-- 2 -->
+<div class="faq-item">
+<div class="faq-question">2. Siapa penyelenggara kegiatan ini?</div>
+<div class="faq-answer">Kegiatan diselenggarakan oleh lembaga nasional yang bergerak di bidang pendidikan dan kompetisi akademik.</div>
+</div>
+
+<!-- 3 -->
+<div class="faq-item">
+<div class="faq-question">3. Apakah kegiatan ini resmi?</div>
+<div class="faq-answer">Ya. Seluruh kegiatan dilaksanakan secara resmi dengan sistem dan regulasi yang jelas.</div>
+</div>
+
+<!-- 4 -->
+<div class="faq-item">
+<div class="faq-question">4. Apakah sertifikat yang diterbitkan resmi?</div>
+<div class="faq-answer">Sertifikat diterbitkan secara resmi oleh panitia nasional dan memiliki nomor validasi.</div>
+</div>
+
+<!-- 5 -->
+<div class="faq-item">
+<div class="faq-question">5. Siapa saja yang dapat mengikuti kompetisi ini?</div>
+<div class="faq-answer">Peserta dari jenjang pendidikan yang sesuai dengan kategori lomba yang dibuka.</div>
+</div>
+
+<!-- 6 -->
+<div class="faq-item">
+<div class="faq-question">6. Apakah peserta harus berasal dari sekolah tertentu?</div>
+<div class="faq-answer">Tidak. Peserta dapat berasal dari sekolah negeri, swasta, maupun lembaga pendidikan lainnya.</div>
+</div>
+
+<!-- 7 -->
+<div class="faq-item">
+<div class="faq-question">7. Apakah kegiatan dilakukan secara online?</div>
+<div class="faq-answer">Ya. Kompetisi dilaksanakan secara daring melalui platform resmi.</div>
+</div>
+
+<!-- 8 -->
+<div class="faq-item">
+<div class="faq-question">8. Bagaimana sistem pelaksanaan lomba?</div>
+<div class="faq-answer">Peserta mengerjakan soal melalui sistem digital dengan waktu yang telah ditentukan.</div>
+</div>
+
+<!-- 9 -->
+<div class="faq-item">
+<div class="faq-question">9. Apakah ada batas waktu pengerjaan?</div>
+<div class="faq-answer">Ya. Setiap level memiliki batas waktu yang berbeda sesuai tingkat kesulitan.</div>
+</div>
+
+<!-- 10 -->
+<div class="faq-item">
+<div class="faq-question">10. Apakah soal berbeda setiap level?</div>
+<div class="faq-answer">Ya. Soal disesuaikan dengan tingkat kesulitan masing-masing level.</div>
+</div>
+
+<!-- 11 -->
+<div class="faq-item">
+<div class="faq-question">11. Apakah soal sesuai standar nasional?</div>
+<div class="faq-answer">Soal disusun berdasarkan standar akademik nasional dan direview oleh tim ahli.</div>
+</div>
+
+<!-- 12 -->
+<div class="faq-item">
+<div class="faq-question">12. Bagaimana cara mendaftar?</div>
+<div class="faq-answer">Pendaftaran dilakukan secara online melalui laman resmi yang tersedia.</div>
+</div>
+
+<!-- 13 -->
+<div class="faq-item">
+<div class="faq-question">13. Apakah ada biaya pendaftaran?</div>
+<div class="faq-answer">Biaya pendaftaran mengikuti ketentuan yang tercantum pada pengumuman resmi.</div>
+</div>
+
+<!-- 14 -->
+<div class="faq-item">
+<div class="faq-question">14. Bagaimana cara pembayaran?</div>
+<div class="faq-answer">Pembayaran dilakukan melalui metode yang telah disediakan oleh panitia.</div>
+</div>
+
+<!-- 15 -->
+<div class="faq-item">
+<div class="faq-question">15. Apakah data peserta aman?</div>
+<div class="faq-answer">Data peserta dikelola secara profesional dan dijaga kerahasiaannya.</div>
+</div>
+
+<!-- 16 -->
+<div class="faq-item">
+<div class="faq-question">16. Apakah bisa mendaftar lebih dari satu kategori?</div>
+<div class="faq-answer">Ya, selama memenuhi persyaratan masing-masing kategori.</div>
+</div>
+
+<!-- 17 -->
+<div class="faq-item">
+<div class="faq-question">17. Bagaimana jika salah mengisi data?</div>
+<div class="faq-answer">Peserta dapat menghubungi admin untuk melakukan koreksi sebelum batas waktu.</div>
+</div>
+
+<!-- 18 -->
+<div class="faq-item">
+<div class="faq-question">18. Apakah ada konfirmasi setelah mendaftar?</div>
+<div class="faq-answer">Ya. Peserta akan menerima konfirmasi melalui email atau akun terdaftar.</div>
+</div>
+
+<!-- 19 -->
+<div class="faq-item">
+<div class="faq-question">19. Kapan jadwal pelaksanaan?</div>
+<div class="faq-answer">Jadwal diumumkan secara resmi melalui website dan media informasi resmi.</div>
+</div>
+
+<!-- 20 -->
+<div class="faq-item">
+<div class="faq-question">20. Apakah boleh menggunakan kalkulator?</div>
+<div class="faq-answer">Ketentuan penggunaan alat bantu mengikuti peraturan yang ditetapkan.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">21. Apakah peserta mendapatkan kartu peserta?</div>
+<div class="faq-answer">Ya, kartu peserta digital akan dikirimkan melalui email setelah verifikasi selesai.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">22. Apakah lomba dilaksanakan secara online?</div>
+<div class="faq-answer">Pelaksanaan dapat dilakukan secara online atau hybrid sesuai ketentuan resmi panitia.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">23. Apakah ada biaya pendaftaran?</div>
+<div class="faq-answer">Biaya pendaftaran mengikuti kategori lomba dan diumumkan secara transparan di website resmi.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">24. Bagaimana metode pembayaran?</div>
+<div class="faq-answer">Pembayaran dilakukan melalui transfer bank atau metode digital resmi yang tersedia.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">25. Apakah peserta dari luar negeri bisa ikut?</div>
+<div class="faq-answer">Peserta internasional diperbolehkan mengikuti kategori tertentu sesuai regulasi.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">26. Apakah soal dibuat oleh tim ahli?</div>
+<div class="faq-answer">Ya, soal disusun oleh tim akademisi dan praktisi berpengalaman di bidangnya.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">27. Apakah ada simulasi sebelum lomba?</div>
+<div class="faq-answer">Panitia menyediakan sesi simulasi untuk memastikan peserta memahami sistem ujian.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">28. Apakah waktu pengerjaan dibatasi?</div>
+<div class="faq-answer">Ya, setiap kategori memiliki batas waktu yang telah ditentukan secara resmi.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">29. Apakah hasil dapat diprotes?</div>
+<div class="faq-answer">Peserta dapat mengajukan klarifikasi resmi dalam batas waktu yang ditetapkan.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">30. Bagaimana jika peserta terlambat?</div>
+<div class="faq-answer">Peserta yang terlambat mengikuti ketentuan teknis yang berlaku sesuai jadwal resmi.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">31. Apakah tersedia hadiah nasional?</div>
+<div class="faq-answer">Ya, tersedia medali, trofi, dan penghargaan nasional bagi pemenang.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">32. Apakah semua peserta mendapat sertifikat?</div>
+<div class="faq-answer">Seluruh peserta yang menyelesaikan lomba akan mendapatkan e-sertifikat resmi.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">33. Apakah ada kategori individu dan tim?</div>
+<div class="faq-answer">Kategori individu dan tim tersedia sesuai jenis lomba yang dipilih.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">34. Apakah juri bersifat independen?</div>
+<div class="faq-answer">Dewan juri bekerja secara independen dan profesional tanpa intervensi.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">35. Apakah lomba menggunakan sistem pengawasan?</div>
+<div class="faq-answer">Sistem pengawasan digital diterapkan untuk menjaga integritas kompetisi.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">36. Apakah peserta boleh menggunakan kalkulator?</div>
+<div class="faq-answer">Penggunaan alat bantu mengikuti aturan masing-masing kategori lomba.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">37. Bagaimana jika koneksi internet terputus?</div>
+<div class="faq-answer">Sistem akan merekam progres terakhir sesuai kebijakan teknis yang berlaku.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">38. Apakah nilai diumumkan secara terbuka?</div>
+<div class="faq-answer">Hasil akhir diumumkan melalui website resmi dan akun peserta masing-masing.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">39. Apakah ada babak final?</div>
+<div class="faq-answer">Beberapa kategori memiliki babak final nasional sesuai ketentuan lomba.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">40. Apakah lomba diakui secara nasional?</div>
+<div class="faq-answer">Kegiatan diselenggarakan secara nasional dengan standar profesional.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">41. Apakah ada batas kuota peserta?</div>
+<div class="faq-answer">Kuota peserta dapat dibatasi untuk menjaga kualitas pelaksanaan.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">42. Bagaimana sistem perankingan?</div>
+<div class="faq-answer">Perankingan ditentukan berdasarkan skor akhir dan ketentuan tie-break resmi.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">43. Apakah ada pembagian tingkat kesulitan?</div>
+<div class="faq-answer">Soal dibagi dalam tingkat kesulitan sesuai kategori lomba.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">44. Apakah panitia menyediakan panduan teknis?</div>
+<div class="faq-answer">Panduan teknis lengkap tersedia dalam website resmi dan dapat diakses peserta.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">45. Apakah bisa mendaftar kolektif melalui sekolah?</div>
+<div class="faq-answer">Sekolah dapat mendaftarkan peserta secara kolektif melalui akun institusi.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">46. Apakah ada pembinaan sebelum lomba?</div>
+<div class="faq-answer">Beberapa kategori menyediakan pembinaan atau webinar persiapan.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">47. Apakah jadwal dapat berubah?</div>
+<div class="faq-answer">Perubahan jadwal akan diumumkan secara resmi melalui website dan email.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">48. Apakah lomba transparan?</div>
+<div class="faq-answer">Seluruh proses dilaksanakan secara transparan dan terdokumentasi.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">49. Bagaimana cara menghubungi panitia?</div>
+<div class="faq-answer">Peserta dapat menghubungi panitia melalui kontak resmi yang tersedia di website.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">50. Apakah keputusan juri bersifat final?</div>
+<div class="faq-answer">Keputusan dewan juri bersifat final dan tidak dapat diganggu gugat.</div>
+</div>
+
+
+</div>
+
+<footer>
+© 2026 FLAN OLYMPIAD part of PT GILANG AKSARA CENDEKIA • All Rights Reserved
+</footer>
+
+<script>
+document.getElementById("searchInput").addEventListener("keyup", function(){
+let filter=this.value.toLowerCase();
+let cards=document.querySelectorAll(".card");
+cards.forEach(card=>{
+if(card.innerText.toLowerCase().includes(filter)){
+card.style.display="block";
+}else{
+card.style.display="none";
+}
+});
+});
+
+document.querySelectorAll(".faq-question").forEach(item=>{
+item.addEventListener("click",()=>{
+let answer=item.nextElementSibling;
+answer.style.display=answer.style.display==="block"?"none":"block";
+});
+});
+</script>
+
+</body>
+</html>

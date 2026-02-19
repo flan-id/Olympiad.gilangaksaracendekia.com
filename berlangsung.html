@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olimpiade Berlangsung - FLAN Olympiad</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+    background:linear-gradient(135deg,#e3f2fd,#bbdefb);
+    padding:20px;
+    color:#1a1a1a;
+}
+
+/* HEADER */
+header{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    background:#ffffff;
+    padding:15px 25px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom:25px;
+}
+
+header img{
+    height:50px;
+}
+
+header h1{
+    font-size:20px;
+    font-weight:700;
+}
+
+/* INTRO */
+.intro{
+    background:#ffffff;
+    padding:25px;
+    border-radius:20px;
+    margin-bottom:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.intro h2{
+    margin-bottom:10px;
+}
+
+.search-box{
+    margin-top:15px;
+    display:flex;
+    gap:10px;
+}
+
+.search-box input{
+    flex:1;
+    padding:10px 15px;
+    border-radius:30px;
+    border:1px solid #2196f3;
+    outline:none;
+}
+
+.search-box button{
+    padding:10px 20px;
+    border:none;
+    background:#2196f3;
+    color:white;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.search-box button:hover{
+    background:#1565c0;
+}
+
+/* CARD GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+/* CARD */
+.card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card img{
+    width:100%;
+    height:auto; /* tidak kepotong */
+    display:block;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card-content h3{
+    margin-bottom:10px;
+}
+
+.card-content p{
+    font-size:14px;
+    line-height:1.6;
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.modal-content{
+    background:white;
+    max-width:700px;
+    width:100%;
+    border-radius:20px;
+    padding:30px;
+    position:relative;
+    animation:zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn{
+    from{transform:scale(0.8);opacity:0;}
+    to{transform:scale(1);opacity:1;}
+}
+
+.close{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:20px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+    margin-top:50px;
+    text-align:center;
+    font-size:14px;
+    color:#333;
+}
+
+/* === BUTTON AESTHETIC === */
+.btn-group {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+/* Warna berbeda tiap tombol */
+.btn-daftar {
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: white;
+}
+
+.btn-panduan {
+    background: linear-gradient(45deg, #f7971e, #ffd200);
+    color: white;
+}
+
+.btn-deskripsi {
+    background: linear-gradient(45deg, #00b09b, #96c93d);
+    color: white;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* === MODAL WARNA CERAH === */
+.modal-content {
+    background: linear-gradient(135deg, #ffffff, #f0f9ff);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-top: 6px solid #00c6ff;
+}
+
+.close {
+    color: #ff4d6d;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="assets/logo.jpg" alt="FLAN Olympiad Logo">
+    <h1>FLAN Olympiad</h1>
+</header>
+
+<div class="intro">
+    <h2>Olimpiade Sedang Berlangsung 🚀</h2>
+    <p>Berikut adalah daftar kompetisi yang sedang aktif dan dapat diikuti saat ini. Klik pada bagian "baca deksripsi" untuk melihat detail lengkap, timeline, serta informasi penting lainnya.</p>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Cari lomba berdasarkan nama...">
+        <button onclick="searchLomba()">Cari</button>
+    </div>
+</div>
+
+<div class="grid" id="lombaGrid">
+
+<!-- LOMBA 1 -->  
+<div class="card" data-name="FLAN national academic olympiad">  
+    <img src="assets/poster1.jpg" alt="Poster Math">  
+    <div class="card-content">  
+        <h3>FLAN national academic olympiad</h3>  
+        <p>Kompetisi bidang IPA,IPS & matematika tingkat nasional untuk SD,SMP & SMA.</p>  
+
+        <div class="btn-group">  
+            <button onclick="location.href='daftar.html'">Daftar</button>  
+            <button onclick="location.href='buku-panduan.html'">Buku Panduan</button>  
+            <button class="btn btn-deskripsi" onclick="openModal('modal1')">Baca Deskripsi</button>  
+        </div>  
+    </div>  
+</div>  
+
+<!-- LOMBA 2 -->  
+<div class="card" data-name="FLAN national Mathematics Olympiad">  
+    <img src="assets/poster2.jpg" alt="Poster Science">  
+    <div class="card-content">  
+        <h3>FLAN national Mathematics Olympiad"</h3>  
+        <p>ajang olimpiade matematika nasional,untuk seluruh pelajar di indonesia!</p>  
+
+        <div class="btn-group">  
+            <button onclick="location.href='daftar.html'">Daftar</button>  
+            <button onclick="location.href='buku-panduan.html'">Buku Panduan</button>  
+            <button class="btn btn-deskripsi" onclick="openModal('modal2')">Baca Deskripsi</button>  
+        </div>  
+    </div>  
+</div>  
+
+<!-- LOMBA 3 -->  
+<div class="card" data-name="FLAN national Science olympiad">  
+    <img src="assets/poster3.jpg" alt="Poster Tech">  
+    <div class="card-content">  
+        <h3>FLAN national Science olympiad</h3>  
+        <p>olimpiade nasional untuk seluruh pelajar di nusantara.buat kamu yang katanya JAGO di bidang sains</p>  
+
+        <div class="btn-group">  
+            <button onclick="location.href='daftar.html'">Daftar</button>  
+            <button onclick="location.href='buku-panduan.html'">Buku Panduan</button>  
+            <button class="btn btn-deskripsi" onclick="openModal('modal3')">Baca Deskripsi</button>  
+        </div>  
+    </div>  
+</div>
+
+<!-- MODAL 1 -->
+<div class="modal" id="modal1">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+        <h2>FLAN National Academic Olympiad</h2>
+        <p><strong>Deskripsi:</strong> Kompetisi nasional bidang IPA, IPS & Matematika untuk SD, SMP & SMA. Gratis, legal, dan online. Jangan sampai abai—kesempatan ini bisa membuatmu tertinggal!</p>
+        <p><strong>Timeline:</strong> Pendaftaran: 8 Januari – 21 Februari 2026 | Pelaksanaan: 22 Februari 2026</p>
+        <p><strong>Info Penting:</strong> Bisa diikuti dari mana saja. Cocok untuk mengukur kemampuan akademikmu secara serius.</p>
+    </div>
+</div>
+
+<!-- MODAL 2 -->
+<div class="modal" id="modal2">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal2')">&times;</span>
+        <h2>FLAN National Mathematics Olympiad</h2>
+        <p><strong>Deskripsi:</strong> Kompetisi matematika nasional untuk SD, SMP & SMA. Gratis dan online. Jangan biarkan temanmu mendahului—ikuti sekarang!</p>
+        <p><strong>Timeline:</strong> Pendaftaran: 26 Januari – 6 Maret 2026 | Pelaksanaan: 7 Maret 2026</p>
+        <p><strong>Info Penting:</strong> Materi sesuai standar olimpiade nasional. Fokus pada problem solving dan logika.</p>
+    </div>
+</div>
+
+<!-- MODAL 3 -->
+<div class="modal" id="modal3">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal3')">&times;</span>
+        <h2>FLAN National Sciences Olympiad</h2>
+        <p><strong>Deskripsi:</strong> Kompetisi sains nasional (Kimia, Fisika, Biologi) untuk SD, SMP & SMA. Gratis, online, dan legal. Jangan takut melewatkan kesempatan berharga ini!</p>
+        <p><strong>Timeline:</strong> Pendaftaran: 26 Januari – 27 Maret 2026 | Pelaksanaan: 28 Maret 2026</p>
+        <p><strong>Info Penting:</strong> Siap menghadapi soal konsep dan eksperimen konseptual. Cocok untuk peserta yang ingin menguji kemampuan sainsnya secara serius.</p>
+    </div>
+</div>
+
+<footer>
+Copyright © FLAN Olympiad 2026<br>
+Part of PT Gilang Aksara Cendekia
+</footer>
+
+<script>
+function openModal(id){
+    document.getElementById(id).style.display="flex";
+}
+function closeModal(id){
+    document.getElementById(id).style.display="none";
+}
+function searchLomba(){
+    const input = document.getElementById("searchInput").value.toLowerCase();
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card=>{
+        const name = card.getAttribute("data-name").toLowerCase();
+        if(name.includes(input)){
+            card.style.display="block";
+        }else{
+            card.style.display="none";
+        }
+    });
+}
+</script>
+
+</body>
+</html>

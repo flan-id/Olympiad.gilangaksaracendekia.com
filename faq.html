@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ Center - FLAN Olympiad</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #222;
+}
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+header {
+  background-color: #0B3C5D;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+header img {
+  max-width: 120px;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+header p {
+  margin: 5px 0 0 0;
+  font-size: 16px;
+}
+
+/* Search bar */
+.search-bar {
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+}
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+.search-bar button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #0B3C5D;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Accordion FAQ */
+.faq-item {
+  background-color: #fff;
+  border-radius: 12px;
+  margin: 10px 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+.faq-question {
+  padding: 15px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+}
+.faq-question:hover {
+  background-color: #d0f0fd;
+}
+.faq-answer {
+  padding: 15px 20px;
+  display: none;
+  border-top: 1px solid #eee;
+}
+.faq-question-icon {
+  font-size: 20px;
+  color: #0B3C5D;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  background-color: #e3f2f1;
+  font-size: 14px;
+  color: #555;
+}
+}
+  .buttons {
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap: wrap;
+  }
+  .buttons a {
+    padding:12px 25px;
+    text-decoration:none;
+    background:#00796b;
+    color:white;
+    border-radius:30px;
+    font-weight:600;
+    transition:0.3s;
+  }
+  .buttons a:hover {
+    background:#004d40;
+</style>
+</head>
+<body>
+
+<div class="container">
+<header>
+  <img src="assets/logo.jpg" alt="Logo FLAN Olympiad">
+  <h1>FLAN OLYMPIAD</h1>
+  <p>part of PT Gilang Aksara Cendekia</p>
+</header>
+
+<div class="search-bar">
+  <input type="text" id="faqSearch" placeholder="Masukkan pertanyaan Anda...">
+  <button>🔍</button>
+</div>
+
+<div id="faqList">
+
+<!-- FAQ Item Template -->
+<div class="faq-item">
+<!-- FAQ 50 Pertanyaan + Jawaban -->
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah FLAN Olympiad resmi dan berbadan hukum?</div>
+  <div class="faq-answer">Ya, FLAN Olympiad merupakan platform resmi dan berbadan hukum sebagai bagian dari PT Gilang Aksara Cendekia, Indonesia.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Siapa yang bisa mendaftar di FLAN Olympiad?</div>
+  <div class="faq-answer">Seluruh pelajar Indonesia, baik sekolah formal maupun non-formal, dapat mendaftar sesuai jenjang lomba yang tersedia. Peserta di bawah 18 tahun wajib izin orang tua/wali.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Bidang lomba apa saja yang tersedia?</div>
+  <div class="faq-answer">FLAN Olympiad menyediakan lomba di bidang sains, matematika, teknologi, agama, seni, sosial, dan lainnya, sekaligus menyediakan ruang belajar untuk pengembangan kompetensi peserta.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah lomba ini terbuka untuk pelajar internasional?</div>
+  <div class="faq-answer">Saat ini, FLAN Olympiad fokus pada pelajar Indonesia. Untuk peserta internasional, informasi akan diumumkan secara resmi jika tersedia.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah peserta di bawah 18 tahun perlu izin orang tua?</div>
+  <div class="faq-answer">Ya, peserta di bawah 18 tahun wajib mendapatkan persetujuan dari orang tua atau wali untuk dapat mendaftar dan mengikuti lomba.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Bagaimana cara mendaftar lomba?</div>
+  <div class="faq-answer">Pendaftaran dilakukan melalui platform resmi FLAN Olympiad dengan mengisi formulir pendaftaran secara lengkap dan valid.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah ada biaya pendaftaran?</div>
+  <div class="faq-answer">Ya, setiap lomba memiliki biaya pendaftaran yang diinformasikan secara transparan pada halaman resmi setiap kompetisi.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Metode pembayaran apa yang diterima?</div>
+  <div class="faq-answer">Pembayaran dapat dilakukan melalui transfer bank resmi, e-wallet, atau metode lain yang diumumkan di platform FLAN Olympiad.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah biaya pendaftaran bisa dikembalikan?</div>
+  <div class="faq-answer">Biaya pendaftaran umumnya tidak dapat dikembalikan kecuali terdapat kondisi khusus yang diumumkan resmi oleh panitia.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Bagaimana cara mengubah data pendaftaran jika ada kesalahan?</div>
+  <div class="faq-answer">Peserta dapat menghubungi panitia melalui email atau WhatsApp resmi untuk meminta koreksi data sebelum lomba dimulai.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah FLAN Olympiad menyediakan ruang belajar selain lomba?</div>
+  <div class="faq-answer">Ya, selain lomba, platform FLAN Olympiad menyediakan materi belajar interaktif untuk mengembangkan kompetensi peserta di berbagai bidang.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah materi lomba bisa diakses sebelum kompetisi?</div>
+  <div class="faq-answer">Beberapa materi dan panduan tersedia sebagai latihan dan persiapan, namun soal lomba resmi hanya diakses saat kompetisi berlangsung.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Bagaimana cara mengakses platform lomba?</div>
+  <div class="faq-answer">Peserta dapat masuk melalui website resmi FLAN Olympiad dengan akun yang telah didaftarkan.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah lomba dilakukan online, offline, atau hybrid?</div>
+  <div class="faq-answer">FLAN Olympiad menyelenggarakan lomba online sebagai format utama, dan beberapa kompetisi khusus dapat menggunakan format hybrid sesuai pengumuman resmi.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Bagaimana sistem penilaian lomba?</div>
+  <div class="faq-answer">Penilaian dilakukan oleh juri resmi berdasarkan kriteria lomba, akurasi jawaban, kreativitas, dan kepatuhan terhadap aturan.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Siapa yang menjadi juri lomba?</div>
+  <div class="faq-answer">Juri adalah tenaga ahli dan profesional di bidang masing-masing yang telah ditunjuk secara resmi oleh panitia FLAN Olympiad.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah keputusan juri bersifat final?</div>
+  <div class="faq-answer">Ya, keputusan juri bersifat final dan mengikat semua peserta.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Bagaimana cara mengajukan protes atau keberatan?</div>
+  <div class="faq-answer">Peserta dapat mengajukan protes sesuai prosedur resmi yang tersedia di platform, sebelum batas waktu yang ditentukan.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah peserta boleh menggunakan bantuan eksternal selama lomba?</div>
+  <div class="faq-answer">Tidak, peserta dilarang menggunakan bantuan eksternal, joki, atau kolaborasi tidak sah. Pelanggaran dapat berakibat diskualifikasi.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Bagaimana jika terjadi gangguan teknis saat lomba?</div>
+  <div class="faq-answer">Penyelenggara dapat menunda atau menjadwal ulang lomba jika terjadi gangguan teknis di platform.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah FLAN Olympiad menyediakan sertifikat?</div>
+  <div class="faq-answer">Ya, semua peserta yang mengikuti lomba akan menerima sertifikat digital sesuai hasil lomba.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Bagaimana cara mendapatkan sertifikat?</div>
+  <div class="faq-answer">Sertifikat dapat diunduh langsung dari akun peserta setelah lomba selesai dan hasil diumumkan.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah FLAN Olympiad menjaga privasi data peserta?</div>
+  <div class="faq-answer">Ya, semua data peserta dijaga sesuai UU Perlindungan Data Pribadi (UU No. 27/2022) dan hanya digunakan untuk keperluan lomba.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah data peserta dibagikan ke pihak ketiga?</div>
+  <div class="faq-answer">Tidak, data peserta tidak dibagikan ke pihak ketiga tanpa izin resmi.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Berapa lama data peserta disimpan?</div>
+  <div class="faq-answer">Data peserta disimpan selama kompetisi dan periode wajar setelahnya, kemudian dimusnahkan atau dianonimkan.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Bagaimana jika terjadi pelanggaran data?</div>
+  <div class="faq-answer">Penyelenggara akan melakukan investigasi internal dan memberitahu peserta sesuai ketentuan hukum yang berlaku.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah ada batas waktu pendaftaran?</div>
+  <div class="faq-answer">Ya, pendaftaran ditutup sesuai tanggal resmi yang diumumkan di platform FLAN Olympiad.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah FLAN Olympiad menyediakan materi latihan?</div>
+  <div class="faq-answer">Ya, peserta dapat mengakses materi latihan untuk mempersiapkan lomba sesuai jenjang dan bidang lomba.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah peserta bisa mengikuti lebih dari satu lomba?</div>
+  <div class="faq-answer">Ya, peserta dapat mendaftar di beberapa lomba selama memenuhi persyaratan pendaftaran masing-masing.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah ada pengumuman pemenang secara publik?</div>
+  <div class="faq-answer">Ya, hasil lomba diumumkan secara resmi melalui platform dan media sosial resmi FLAN Olympiad.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah peserta yang tidak menang tetap mendapat sertifikat?</div>
+  <div class="faq-answer">Ya, semua peserta yang mengikuti lomba akan menerima sertifikat partisipasi digital.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah FLAN Olympiad menyediakan bimbingan atau workshop?</div>
+  <div class="faq-answer">Ya, beberapa program pelatihan dan workshop diadakan untuk mendukung persiapan peserta.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Bagaimana cara menghubungi panitia?</div>
+  <div class="faq-answer">Peserta dapat menghubungi panitia melalui email resmi, WhatsApp, atau media sosial yang tersedia di platform.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah ada batasan umur untuk lomba tertentu?</div>
+  <div class="faq-answer">Ya, beberapa lomba memiliki batasan umur sesuai jenjang pendidikan, yang diumumkan di platform.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah peserta bisa mendapatkan ranking nasional?</div>
+  <div class="faq-answer">Ya, FLAN Olympiad memberikan ranking dan penghargaan berdasarkan hasil lomba nasional.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah lomba memiliki batas waktu pengerjaan?</div>
+  <div class="faq-answer">Ya, setiap lomba memiliki batas waktu yang jelas dan diumumkan sebelum lomba dimulai.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah ada kriteria khusus untuk memenangkan lomba?</div>
+  <div class="faq-answer">Kriteria kemenangan biasanya berdasarkan akurasi jawaban, kreativitas, kepatuhan aturan, dan penilaian juri.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah FLAN Olympiad menggunakan sistem elektronik yang aman?</div>
+  <div class="faq-answer">Ya, platform menggunakan sistem elektronik standar keamanan yang memadai untuk melindungi data dan akun peserta.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Bagaimana jika saya lupa kata sandi?</div>
+  <div class="faq-answer">Peserta dapat melakukan reset kata sandi melalui opsi “Lupa Kata Sandi” di platform resmi FLAN Olympiad.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah ada batasan jumlah peserta dalam lomba?</div>
+  <div class="faq-answer">Jumlah peserta per lomba dapat dibatasi sesuai kapasitas platform dan diumumkan di pengumuman resmi.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah peserta bisa mendapatkan feedback hasil lomba?</div>
+  <div class="faq-answer">Ya, beberapa lomba menyediakan feedback hasil lomba untuk membantu peserta belajar dan memperbaiki kemampuan.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah ada program pendampingan setelah lomba?</div>
+  <div class="faq-answer">Ya, FLAN Olympiad menyediakan program pendampingan untuk peserta yang ingin melanjutkan pengembangan kompetensi.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah peserta bisa membatalkan pendaftaran?</div>
+  <div class="faq-answer">Peserta dapat membatalkan pendaftaran sebelum batas waktu, namun biaya mungkin tidak dikembalikan sesuai ketentuan.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Bagaimana cara mengetahui jadwal lomba?</div>
+  <div class="faq-answer">Jadwal lomba diumumkan melalui platform resmi dan notifikasi untuk setiap peserta yang terdaftar.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah ada pengumuman khusus untuk pemenang?</div>
+  <div class="faq-answer">Ya, pemenang diumumkan melalui platform, email, dan media sosial resmi FLAN Olympiad.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah peserta bisa mengikuti lomba lebih dari satu kali?</div>
+  <div class="faq-answer">Peserta dapat mengikuti lomba di periode berikutnya atau lomba lain sesuai jadwal yang diumumkan.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah FLAN Olympiad mendukung pembelajaran kolaboratif?</div>
+  <div class="faq-answer">Ya, beberapa program dan lomba menyediakan ruang belajar dan diskusi untuk pembelajaran kolaboratif antar peserta.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question"><span class="faq-question-icon">❓</span>Apakah ada kontak resmi untuk pertanyaan umum?</div>
+  <div class="faq-answer">Ya, peserta dapat menghubungi panitia melalui email, WhatsApp, atau media sosial resmi FLAN Olympiad.</div>
+</div>
+
+</div>
+
+<div class="buttons">
+    <a href="index.html">Kembali ke Beranda</a>
+  </div>
+</div>
+<footer>
+<p>Copyright © FLAN Olympiad</p>
+<p>Part of PT Gilang Aksara Cendekia</p>
+<p>Bandung - Republik Indonesia</p>
+</footer>
+
+<script>
+// Accordion toggle
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach(item => {
+  const question = item.querySelector('.faq-question');
+  question.addEventListener('click', () => {
+    const answer = item.querySelector('.faq-answer');
+    answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
+  });
+});
+
+// Live search
+const searchInput = document.getElementById('faqSearch');
+searchInput.addEventListener('input', function() {
+  const filter = this.value.toLowerCase();
+  faqItems.forEach(item => {
+    const text = item.querySelector('.faq-question').innerText.toLowerCase();
+    if(text.includes(filter)) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+});
+</script>
+
+</div>
+</body>
+</html>

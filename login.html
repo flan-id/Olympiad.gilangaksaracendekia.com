@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login CBT FLAN OLYMPIAD</title>
+
+  <!-- ICON -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .login-card {
+      background: #fff;
+      width: 100%;
+      max-width: 380px;
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      animation: fadeUp 0.6s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 6px;
+      font-weight: 700;
+      font-size: 20px;
+      color: #0f172a;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 13px;
+      color: #475569;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #334155;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .input-box {
+      display: flex;
+      align-items: center;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 10px 12px;
+      transition: 0.2s;
+    }
+
+    .input-box i {
+      color: #64748b;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    .input-box input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .input-box:focus-within {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+    }
+
+    .btn-login {
+      width: 100%;
+      border: none;
+      background: #2563eb;
+      color: #fff;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.25s;
+    }
+
+    .btn-login:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    .help {
+      text-align: center;
+      font-size: 12px;
+      color: #475569;
+      margin-top: 14px;
+    }
+
+    .help span {
+      color: #2563eb;
+      font-weight: 500;
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .modal-box {
+      background: #fff;
+      width: 90%;
+      max-width: 320px;
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.85); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-box .icon {
+      font-size: 54px;
+      color: #ef4444;
+      margin-bottom: 10px;
+    }
+
+    .modal-box h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      color: #0f172a;
+    }
+
+    .modal-box p {
+      font-size: 13px;
+      color: #475569;
+      margin-bottom: 16px;
+    }
+
+    .modal-box button {
+      border: none;
+      background: #ef4444;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-card">
+    <div class="title">Login CBT FLAN OLYMPIAD</div>
+    <div class="subtitle">Sistem Resmi Ujian Berbasis Komputer</div>
+
+    <div class="form-group">
+      <label>Nomor Peserta</label>
+      <div class="input-box">
+        <i class="fa-solid fa-id-card"></i>
+        <input type="text" placeholder="Masukkan nomor peserta">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <div class="input-box">
+        <i class="fa-solid fa-lock"></i>
+        <input type="password" placeholder="Masukkan password">
+      </div>
+    </div>
+
+    <button class="btn-login" onclick="showError()">Login</button>
+
+    <div class="help">
+      Lupa password / nomor peserta? <br>
+      <span>Silakan hubungi admin.</span>
+    </div>
+  </div>
+
+  <!-- MODAL ERROR -->
+  <div class="modal" id="modalError">
+    <div class="modal-box">
+      <div class="icon"><i class="fa-solid fa-circle-xmark"></i></div>
+      <h3>Login Gagal</h3>
+      <p>
+        Yahh, sepertinya anda belum memiliki akses login nih.
+      </p>
+      <button onclick="closeError()">Tutup</button>
+    </div>
+  </div>
+
+  <script>
+    function showError() {
+      document.getElementById('modalError').style.display = 'flex';
+    }
+
+    function closeError() {
+      document.getElementById('modalError').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
