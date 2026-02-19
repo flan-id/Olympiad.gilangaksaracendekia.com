@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLAN Olympiad | PT Gilang Aksara Cendekia</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+  --primary:#2563eb;
+  --secondary:#0ea5e9;
+  --soft:#f1f5f9;
+  --dark:#0f172a;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+}
+
+body{
+  background:var(--soft);
+  color:#1e293b;
+  line-height:1.6;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#fff;
+  padding:16px;
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand img{
+  height:44px;
+}
+
+.brand h1{
+  font-size:18px;
+}
+
+.brand small{
+  font-size:12px;
+  opacity:.9;
+}
+
+.menu-btn{
+  font-size:24px;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  background:#fff;
+  padding:48px 20px;
+  text-align:center;
+}
+
+.hero h2{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.hero p{
+  font-size:15px;
+  max-width:720px;
+  margin:auto;
+}
+
+.hero .cta{
+  margin-top:20px;
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.btn{
+  background:var(--primary);
+  color:#fff;
+  padding:12px 22px;
+  border-radius:999px;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+  display:inline-block;
+}
+
+.btn-outline{
+  background:#fff;
+  color:var(--primary);
+  border:2px solid var(--primary);
+}
+
+/* MENU */
+.menu{
+  padding:40px 16px;
+}
+
+.menu h3{
+  text-align:center;
+  margin-bottom:24px;
+}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:16px;
+  max-width:900px;
+  margin:auto;
+}
+
+.menu-card{
+  background:#fff;
+  border-radius:18px;
+  padding:22px 16px;
+  text-align:center;
+  box-shadow:0 8px 24px rgba(0,0,0,.05);
+  cursor:pointer;
+  transition:.3s;
+}
+
+.menu-card:hover{
+  transform:translateY(-6px);
+}
+
+.menu-card i{
+  font-size:26px;
+  color:var(--primary);
+  margin-bottom:8px;
+}
+
+/* SECTION */
+.section{
+  padding:48px 16px;
+}
+
+.section.alt{
+  background:#fff;
+}
+
+.section h3{
+  text-align:center;
+}
+
+.section p.desc{
+  text-align:center;
+  font-size:14px;
+  opacity:.8;
+}
+
+.comp-card{
+  background:#fff;
+  border-radius:24px;
+  overflow:hidden;
+  max-width:860px;
+  margin:28px auto 0;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.comp-card img{
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  background:#f1f5f9;
+}
+
+.comp-body{
+  padding:22px;
+}
+
+.comp-body small{
+  font-size:13px;
+  color:#475569;
+}
+
+/* PENGUMUMAN */
+.announce{
+  background:linear-gradient(135deg,#22c55e,#86efac);
+  text-align:center;
+  padding:40px 16px;
+}
+
+.announce a{
+  background:#fff;
+  padding:16px 26px;
+  border-radius:18px;
+  text-decoration:none;
+  font-weight:600;
+  color:#14532d;
+}
+
+/* berlangsung */
+.berlangsung{
+  background:#1e3c72;
+  text-align:center;
+  padding:40px 16px;
+}
+
+.berlangsung a{
+  background:#fff;
+  padding:16px 26px;
+  border-radius:18px;
+  text-decoration:none;
+  font-weight:600;
+  color:#14532d;
+}
+
+/* SLIDER */
+.slider{
+  display:flex;
+  gap:16px;
+  overflow-x:auto;
+  padding:10px 0;
+}
+
+.slider::-webkit-scrollbar{display:none}
+
+.f-card{
+  min-width:240px;
+  background:#fff;
+  padding:22px;
+  border-radius:20px;
+  box-shadow:0 6px 20px rgba(0,0,0,.06);
+}
+
+.testimonial-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+}
+
+.testimonial-card {
+  min-width: 250px;   /* sebelumnya 300px */
+  max-width: 300px;   /* sebelumnya 350px */
+  padding: 10px;      /* sebelumnya 20px */
+  border-radius: 10px;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.2); /* lebih kecil */
+  font-size: 14px;    /* teks diperkecil 50% */
+}
+
+.testimonial-card h4 {
+  margin-bottom: 3px;
+  font-size: 16px;    /* lebih kecil */
+}
+
+.testimonial-card p:first-of-type {
+  margin-bottom: 5px;
+  font-size: 12px;    /* bintang lebih kecil */
+}
+
+.testimonial-card p:last-of-type {
+  line-height: 1.4;
+  font-size: 12px;    /* isi testimoni lebih kecil */
+}
+
+/* ABOUT */
+.about{
+  text-align:center;
+  padding:48px 20px;
+}
+
+ .about img {
+  width: 160px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+
+/* FOOTER */
+footer{
+  background:#020617;
+  color:#cbd5f5;
+  padding:40px 20px;
+  font-size:14px;
+}
+
+/* WA FLOAT */
+.wa{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  background:#25D366;
+  color:#fff;
+  padding:14px 18px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 6px 20px rgba(0,0,0,.3);
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:999;
+  display:none;
+  justify-content:center;
+  align-items:flex-start;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-box{
+  background:#fff;
+  width:92%;
+  max-width:420px;
+  margin:60px 0;
+  border-radius:24px;
+  max-height:85vh;
+  overflow-y:auto;
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+
+.modal-header{
+  position:sticky;
+  top:0;
+  background:#fff;
+  padding:16px 20px;
+  border-bottom:1px solid #e5e7eb;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.close{
+  font-size:22px;
+  cursor:pointer;
+}
+
+.modal-content{
+  padding:20px;
+}
+
+.modal-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+@media(min-width:480px){
+  .modal-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <img src="assets/logo.jpg" alt="Logo">
+      <div>
+        <h1>FLAN OLYMPIAD</h1>
+        <small>PT Gilang Aksara Cendekia</small>
+      </div>
+    </div>
+    <i class="fas fa-bars menu-btn" onclick="openMenu()"></i>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Selamat Datang di Website Resmi</h1>
+  <h2>FLAN Olympiad</h2>
+  <p>
+    Jadilah juara sekolah bareng FLAN Olympiad.  
+    FLAN Olympiad hadir sebagai ruang baru untuk siswa berani tampil, berprestasi, dan naik level lewat olimpiade.  
+    Bukan sekadar lomba — ini langkah awal kamu dikenal karena kemampuan.
+  </p>
+  <div class="cta">
+    <a href="berlangsung.html" class="btn">Lihat Olimpiade Berlangsung</a>
+    <a href="buku-panduan.html" class="btn btn-outline">Buku Panduan</a>
+  </div>
+</section>
+
+<section class="menu">
+  <h3>Menu Utama</h3>
+  <div class="menu-grid">
+    <div class="menu-card" onclick="location.href='login.html'">
+      <i class="fas fa-right-to-bracket"></i><br>Login CBT
+    </div>
+
+    <div class="menu-card" onclick="location.href='daftar.html'">
+      <i class="fas fa-file-signature"></i><br>Pendaftaran
+    </div>
+
+    <div class="menu-card" onclick="location.href='berlangsung.html'">
+      <i class="fas fa-trophy"></i><br>Kompetisi Berlangsung
+    </div>
+
+    <div class="menu-card" onclick="openMenu()">
+      <i class="fas fa-grid"></i><br>Lainnya
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <h3>Kompetisi Berlangsung</h3>
+  <p class="desc">
+    Ajang olimpiade nasional bergengsi untuk pelajar berprestasi di seluruh Indonesia
+  </p>
+
+  <!-- fnao -->
+  <div class="comp-card">
+    <img src="assets/poster1.jpg" alt="">
+    <div class="comp-body">
+      <h4>FLAN National academic Olympiad</h4>
+      <small>Pendaftaran : 08 jan 2026 - 21 feb 2026 | Pelaksanaan 22 Feb 2026</small><br><br>
+      <a href="daftar.html" class="btn">Daftar Sekarang</a>
+      <a href="buku-panduan.html" class="btn btn-outline">Buku Panduan</a>
+    </div>
+  </div>
+
+  <!-- fnmo -->
+  <div class="comp-card">
+    <img src="assets/poster2.jpg" alt="">
+    <div class="comp-body">
+      <h4>FLAN National Math Olympiad</h4>
+      <small>Pendaftaran 26 jan 2026 - 06 maret 2026 | Pelaksanaan 07 maret 2026</small><br><br>
+      <a href="daftar.html" class="btn">Daftar Sekarang</a>
+      <a href="buku-panduan.html" class="btn btn-outline">Buku Panduan</a>
+    </div>
+  </div>
+
+  <!-- fnso -->
+  <div class="comp-card">
+    <img src="assets/poster3.jpg" alt="">
+    <div class="comp-body">
+      <h4>FLAN National science Olympiad</h4>
+      <small>Pendaftaran 26 jan 2026 - 27 maret 2026 | Pelaksanaan 28 maret 2026</small><br><br>
+      <a href="daftar.html" class="btn">Daftar Sekarang</a>
+      <a href="buku-panduan.html" class="btn btn-outline">Buku Panduan</a>
+    </div>
+  </div>
+</section>
+
+<section class="berlangsung">
+  <a href="berlangsung.html">
+    Klik disini untuk melihat olimpiade lainnya
+  </a>
+</section>
+
+<section class="announce">
+  <a href="pengumuman.html">
+    Klik untuk Lihat Pengumuman Resmi Kompetisi
+  </a>
+</section>
+
+<section class="section">
+  <h3>Fasilitas & Apresiasi</h3>
+  <p class="desc">
+    Seluruh fasilitas dan apresiasi yang diberikan <b>100% GRATIS</b> untuk seluruh peserta (s&k berlaku)
+  </p>
+
+  <div class="slider">
+
+    <!-- PESERTA -->
+    <div class="f-card">
+      <h4>Peserta</h4>
+      <small>Babak Penyisihan</small>
+      <ul>
+        <li>E-Sertifikat Peserta</li>
+        <li>Akses Soal CBT Nasional</li>
+        <li>Seleksi Beasiswa FLAN</li>
+        <li>Grup Koordinasi Peserta</li>
+        <li>Voucher Kompetisi</li>
+        <li>Try Out OSN</li>
+      </ul>
+      <b>Semua fasilitas GRATIS</b>
+    </div>
+
+    <!-- FINALIS -->
+    <div class="f-card">
+      <h4>Grand Finalis</h4>
+      <small>Babak Final</small>
+      <ul>
+        <li>E-Piagam Finalis Nasional</li>
+        <li>Seleksi Beasiswa FLAN</li>
+        <li>Layanan Bantuan & Kurasi Prestasi***</li>
+        <li>Akses Kumpulan Soal Olimpiade</li>
+        <li>Voucher Kompetisi</li>
+        <li>Try Out OSN</li>
+      </ul>
+    </div>
+
+    <!-- JUARA -->
+    <div class="f-card highlight">
+      <h4>Juara & Medalis</h4>
+      <small>Peringkat Teratas Nasional</small>
+      <ul>
+        <li>Seluruh Fasilitas Grand Finalis</li>
+        <li>Medali Nasional <b>GRATIS**</b></li>
+        <li>Uang Pendidikan*</li>
+        <li>Trophy & Program Pelatihan*</li>
+        <li>Souvenir Sponsor**</li>
+        <li>Biaya Pengiriman <b>GRATIS</b>**</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <p class="note">
+    <small>
+      * Untuk peringkat teratas setiap bidang<br>
+      ** untuk juara 1 sampai 3
+      *** ketentuan khusus 
+    </small>
+  </p>
+</section>
+
+<section class="section alt">
+  <h3>Galeri & Testimoni</h3>
+  <div class="testimonial-slider">
+
+    <!-- Card 1 -->
+    <div class="testimonial-card" style="background-color:#FF6F61;">
+      <h4>Alya Putri</h4>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>Pertama kali ikut Flan Olympiad, aku ngerasa deg-degan banget. Tapi suasananya asik, soal-soalnya menantang tapi bisa dipahami kalau fokus. Dari lomba ini aku belajar cara manajemen waktu saat ujian dan sekarang lebih percaya diri buat ikut lomba lainnya.</p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="testimonial-card" style="background-color:#6B5B95;">
+      <h4>Rafi Nugraha</h4>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>Aku seneng banget ikut Flan Olympiad! Soalnya kreatif dan nggak cuma menghafal. Guru-guru juga ramah, jadi walaupun nervous, tetap enjoy. Ini bikin aku makin semangat belajar dan mau ikut lagi tahun depan.</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="testimonial-card" style="background-color:#88B04B;">
+      <h4>Intan Permata</h4>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>Flan Olympiad bikin aku sadar kalau aku harus latihan lebih keras di matematika. Soal-soalnya menantang tapi seru, dan aku senang bisa ketemu teman-teman baru yang juga suka belajar. Seru banget!</p>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="testimonial-card" style="background-color:#FFA500;">
+      <h4>Daffa Rizky</h4>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>Aku awalnya takut nggak bisa menang, tapi pengalaman ikut Flan Olympiad ngajarin aku lebih sabar dan fokus. Senang rasanya bisa nyelesain soal yang tricky, meskipun nggak juara, aku belajar banyak hal baru.</p>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="testimonial-card" style="background-color:#FF69B4;">
+      <h4>Shafa Aulia</h4>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>Pengalaman ikut Flan Olympiad luar biasa! Lingkungannya nyaman, panitianya ramah, dan soal-soalnya menantang tapi fair. Aku jadi lebih percaya diri dan sekarang punya motivasi lebih buat belajar sains.</p>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="testimonial-card" style="background-color:#20B2AA;">
+      <h4>Fadhil Ramadhan</h4>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>Ini pertama kalinya aku ikut lomba akademik nasional, dan Flan Olympiad super menyenangkan! Materi soal bervariasi, nggak monoton. Aku belajar strategi menjawab soal dan kerja sama tim. Pengalaman yang nggak bakal aku lupain.</p>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="testimonial-card" style="background-color:#D2691E;">
+      <h4>Nabila Sari</h4>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>Aku suka banget suasana Flan Olympiad. Soal-soalnya bikin mikir keras tapi seru, nggak cuma hafalan doang. Aku jadi punya pengalaman menghadapi lomba nasional dan banyak teman baru juga!</p>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="testimonial-card" style="background-color:#9ACD32;">
+      <h4>Rangga Putra</h4>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>Flan Olympiad bikin aku sadar kalau belajar nggak harus ngebosenin. Soal IPA dan matematika menantang, tapi cara penyajiannya menarik. Aku senang bisa ikut dan pastinya mau ikut lagi tahun depan.</p>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="testimonial-card" style="background-color:#FF4500;">
+      <h4>Fiona Laras</h4>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>Lomba Flan Olympiad itu berbeda dari lomba lain yang pernah aku ikuti. Ada soal kreatif yang bikin aku harus mikir out-of-the-box. Selain itu, teman-teman peserta juga menyenangkan. Aku belajar banyak hal dari sini.</p>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="testimonial-card" style="background-color:#00CED1;">
+      <h4>Hafiz Alif</h4>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>Ikut Flan Olympiad bikin aku merasa lebih siap menghadapi lomba lain. Panitia sangat membantu, soal menantang tapi adil, dan aku senang bisa tes kemampuan sendiri. Pengalaman yang bener-bener berharga.</p>
+    </div>
+
+<!-- Card 11 -->
+<div class="testimonial-card" style="background-color:#FF8C00;">
+  <h4>Alya Putri</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Aku awalnya takut nggak bisa nyelesain soal, tapi setelah ikut Flan Olympiad, aku sadar kalau latihan itu penting. Lingkungannya nyaman, dan aku senang bisa lihat seberapa jauh kemampuan aku dibanding teman-teman dari berbagai daerah.</p>
+</div>
+
+<!-- Card 12 -->
+<div class="testimonial-card" style="background-color:#8A2BE2;">
+  <h4>Rafi Nugraha</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Soal Flan Olympiad kreatif banget! Aku suka karena nggak cuma mengandalkan hafalan, tapi juga logika dan analisis. Aku belajar banyak trik baru buat matematika dan sains. Seru banget!</p>
+</div>
+
+<!-- Card 13 -->
+<div class="testimonial-card" style="background-color:#FF69B4;">
+  <h4>Intan Permata</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Pengalaman ikut Flan Olympiad itu menyenangkan. Aku jadi belajar manajemen waktu, strategi mengerjakan soal, dan cara menghadapi tekanan lomba. Walaupun capek, tapi puas banget!</p>
+</div>
+
+<!-- Card 14 -->
+<div class="testimonial-card" style="background-color:#20B2AA;">
+  <h4>Daffa Rizky</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Aku nggak nyangka bakal senang ikut lomba akademik. Flan Olympiad bikin aku lebih percaya diri, soal-soalnya menantang tapi fair, dan aku bisa ketemu banyak teman baru yang punya minat sama. Aku mau ikut lagi!</p>
+</div>
+
+<!-- Card 15 -->
+<div class="testimonial-card" style="background-color:#D2691E;">
+  <h4>Shafa Aulia</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Flan Olympiad bikin aku sadar kalau aku harus belajar lebih giat. Soal IPA dan matematika menantang banget, tapi seru. Aku juga senang bisa ikut lomba yang profesional dan tertata rapi.</p>
+</div>
+
+<!-- Card 16 -->
+<div class="testimonial-card" style="background-color:#9ACD32;">
+  <h4>Fadhil Ramadhan</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Ikut Flan Olympiad itu pengalaman yang nggak terlupakan. Aku belajar fokus, sabar, dan nggak gampang putus asa saat soal sulit. Panitianya ramah, dan aku senang bisa ikut lomba tingkat nasional.</p>
+</div>
+
+<!-- Card 17 -->
+<div class="testimonial-card" style="background-color:#FF4500;">
+  <h4>Nabila Sari</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Flan Olympiad menantang tapi bikin ketagihan. Aku jadi lebih semangat belajar, soal-soalnya kreatif, dan aku belajar banyak trik baru buat matematika. Aku pasti ikut lagi tahun depan!</p>
+</div>
+
+<!-- Card 18 -->
+<div class="testimonial-card" style="background-color:#00CED1;">
+  <h4>Rangga Putra</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Aku senang banget ikut Flan Olympiad. Walaupun awalnya nervous, tapi suasananya nyaman, soal menantang tapi fair, dan aku bisa belajar banyak strategi menghadapi lomba. Pengalaman yang bermanfaat banget.</p>
+</div>
+
+<!-- Card 19 -->
+<div class="testimonial-card" style="background-color:#FF6347;">
+  <h4>Fiona Laras</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Flan Olympiad itu luar biasa! Aku belajar banyak soal kreatif dan logika, panitianya ramah, dan aku bisa lihat kemampuan sendiri. Seru banget ketemu teman-teman baru dari berbagai daerah.</p>
+</div>
+
+<!-- Card 20 -->
+<div class="testimonial-card" style="background-color:#8B008B;">
+  <h4>Hafiz Alif</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Aku suka banget pengalaman ikut Flan Olympiad. Soal-soalnya bikin mikir keras, tapi menarik. Aku belajar fokus, manajemen waktu, dan strategi menjawab soal. Pengalaman ini bikin aku lebih siap lomba lain.</p>
+</div>
+
+<!-- Card 21 -->
+<div class="testimonial-card" style="background-color:#FF1493;">
+  <h4>Azka Fadhil</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Flan Olympiad bikin aku percaya diri banget. Lingkungannya nyaman, soal menantang tapi fair, dan aku belajar banyak hal baru. Aku pasti mau ikut lagi karena pengalaman ini luar biasa!</p>
+</div>
+
+<!-- Card 22 -->
+<div class="testimonial-card" style="background-color:#1E90FF;">
+  <h4>Nadia Putri</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Aku senang banget ikut Flan Olympiad. Awalnya nervous, tapi panitia ramah dan soal-soal menantang tapi adil. Aku belajar banyak strategi menghadapi lomba.</p>
+</div>
+
+<!-- Card 23 -->
+<div class="testimonial-card" style="background-color:#32CD32;">
+  <h4>Haris Pratama</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Ikut Flan Olympiad itu pengalaman yang seru! Aku belajar fokus dan sabar, plus ketemu teman baru dari berbagai daerah. Soalnya menantang tapi bisa dipahami kalau serius.</p>
+</div>
+
+<!-- Card 24 -->
+<div class="testimonial-card" style="background-color:#FFD700;">
+  <h4>Salsa Aulia</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Flan Olympiad beda dari lomba lain. Soal kreatif, nggak monoton, dan panitia sangat membantu. Aku jadi lebih semangat belajar dan siap ikut lomba lain.</p>
+</div>
+
+<!-- Card 25 -->
+<div class="testimonial-card" style="background-color:#FF69B4;">
+  <h4>Reza Aditya</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Seru banget! Aku belajar manajemen waktu, strategi ngerjain soal, dan fokus saat lomba. Lingkungannya nyaman dan panitianya ramah banget.</p>
+</div>
+
+<!-- Card 26 -->
+<div class="testimonial-card" style="background-color:#20B2AA;">
+  <h4>Dinda Laras</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Pengalaman ikut Flan Olympiad bikin aku sadar kalau belajar bisa seru. Soal matematika dan IPA menantang tapi nggak bikin stress. Aku mau ikut lagi tahun depan.</p>
+</div>
+
+<!-- Card 27 -->
+<div class="testimonial-card" style="background-color:#D2691E;">
+  <h4>Farhan Rizky</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Aku suka banget suasananya. Bisa ketemu teman baru, belajar strategi ngerjain soal, dan panitianya profesional. Lomba ini bener-bener pengalaman yang berharga.</p>
+</div>
+
+<!-- Card 28 -->
+<div class="testimonial-card" style="background-color:#9ACD32;">
+  <h4>Aulia Nabila</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Pertama ikut Flan Olympiad, aku deg-degan tapi senang. Soal menantang tapi bisa dicoba dengan fokus. Aku belajar banyak hal baru dari lomba ini.</p>
+</div>
+
+<!-- Card 29 -->
+<div class="testimonial-card" style="background-color:#FF4500;">
+  <h4>Iqbal Maulana</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Flan Olympiad bikin aku sadar pentingnya latihan dan fokus. Soalnya kreatif, dan aku senang bisa belajar sambil ketemu teman-teman baru.</p>
+</div>
+
+<!-- Card 30 -->
+<div class="testimonial-card" style="background-color:#00CED1;">
+  <h4>Rania Putri</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Pengalaman yang menyenangkan! Aku belajar manajemen waktu dan strategi ngerjain soal. Lingkungan lomba nyaman dan panitianya ramah.</p>
+</div>
+
+<!-- Card 31 -->
+<div class="testimonial-card" style="background-color:#FF6347;">
+  <h4>Fajar Akbar</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Lomba ini bikin aku lebih percaya diri dan siap menghadapi lomba lain. Soal menantang tapi fair, dan aku belajar banyak trik baru buat matematika.</p>
+</div>
+
+<!-- Card 32 -->
+<div class="testimonial-card" style="background-color:#8B008B;">
+  <h4>Shania Laras</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Flan Olympiad luar biasa! Aku belajar fokus, sabar, dan nggak gampang putus asa. Soalnya kreatif, panitianya ramah, dan aku senang ikut lomba tingkat nasional.</p>
+</div>
+
+<!-- Card 33 -->
+<div class="testimonial-card" style="background-color:#FF1493;">
+  <h4>Vino Aditya</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Ikut lomba ini bikin aku lebih semangat belajar. Soal kreatif dan menantang, teman-teman peserta menyenangkan. Aku mau ikut lagi!</p>
+</div>
+
+<!-- Card 34 -->
+<div class="testimonial-card" style="background-color:#1E90FF;">
+  <h4>Nadya Aulia</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Lomba ini beda dari yang lain. Soal kreatif, panitia ramah, dan aku belajar banyak strategi menjawab soal. Seru banget ketemu teman-teman baru.</p>
+</div>
+
+<!-- Card 35 -->
+<div class="testimonial-card" style="background-color:#32CD32;">
+  <h4>Reyhan Pratama</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Flan Olympiad bikin aku belajar manajemen waktu, fokus, dan sabar. Soal menantang tapi bisa dipahami, pengalaman yang nggak terlupakan.</p>
+</div>
+
+<!-- Card 36 -->
+<div class="testimonial-card" style="background-color:#FFD700;">
+  <h4>Tasya Putri</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Aku awalnya takut nggak bisa nyelesain soal, tapi lomba ini ngajarin aku sabar dan fokus. Lingkungannya nyaman, aku senang bisa ikut.</p>
+</div>
+
+<!-- Card 37 -->
+<div class="testimonial-card" style="background-color:#FF69B4;">
+  <h4>Aditya Ramadhan</h4>
+  <p>⭐⭐⭐⭐⭐</p>
+  <p>Seru banget ikut Flan Olympiad. Aku belajar fokus, manajemen waktu, dan strategi ngerjain soal. Panitianya ramah dan profesional.</p>
+</div>
+
+</div>
+
+    <p class="note">
+      <small>
+        * Wajah siswa tidak kami tampilkan demi menjaga privasi.<br>
+        ** Untuk membuat testimoni, silakan hubungi admin.<br>
+        *** Pastikan testimoni menggunakan bahasa yang baik dan sopan karena admin tidak melakukan revisi pada testimoni anda.
+      </small>
+    </p>
+</section>
+
+<section class="about">
+  <img src="assets/logo.jpg">
+<div class="about-card" style="background-color:#1E90FF;">
+  FLAN Olympiad merupakan program olimpiade akademik nasional yang diselenggarakan secara resmi oleh 
+  <b>PT Gilang Aksara Cendekia</b> sebagai bentuk komitmen dalam mendukung peningkatan kualitas pendidikan 
+  dan prestasi pelajar Indonesia. Program ini dirancang sebagai wadah kompetisi yang profesional, 
+  terstruktur, dan berstandar nasional untuk menjaring serta mengembangkan potensi akademik peserta didik 
+  dari berbagai jenjang dan daerah di seluruh Indonesia.
+  Melalui sistem seleksi yang transparan, objektif, dan berbasis teknologi, FLAN Olympiad menghadirkan 
+  pengalaman kompetisi akademik yang tidak hanya menekankan pada hasil, tetapi juga pada proses pembelajaran, 
+  penguatan karakter, serta peningkatan daya saing pelajar. Seluruh rangkaian kompetisi dilaksanakan dengan 
+  dukungan sistem <i>Computer Based Test (CBT)</i>, kurasi materi berkualitas, serta pendampingan akademik 
+  yang relevan dengan standar olimpiade nasional.
+  FLAN Olympiad tidak hanya berfokus pada kompetisi semata, tetapi juga memberikan berbagai fasilitas dan 
+  apresiasi edukatif, mulai dari sertifikasi nasional, akses pembinaan, seleksi beasiswa, hingga penghargaan 
+  bagi peserta berprestasi. Dengan menjunjung tinggi nilai integritas, profesionalisme, dan inklusivitas, 
+  FLAN Olympiad diharapkan menjadi salah satu program olimpiade nasional yang kredibel, berkelanjutan, dan 
+  berkontribusi nyata dalam mencetak generasi unggul, berprestasi, dan berdaya saing global.
+</p>
+</section>
+
+<footer>
+  <p>Copyright © <b>FLAN Olympiad</b></p>
+  PT Gilang Aksara Cendekia®<br>
+  2026<br>
+  Bandung - Indonesia
+</footer>
+
+<a class="wa" href="https://wa.me/6283832328009" target="_blank">
+  <i class="fab fa-whatsapp"></i> hubungi Admin
+</a>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-title">
+        Menu tersedia di website FLAN Olympiad
+      </div>
+      <div class="close" onclick="closeMenu()">
+        <i class="fas fa-xmark"></i>
+      </div>
+    </div>
+
+    <div class="modal-content">
+      <div class="modal-grid">
+
+      <div class="menu-card" onclick="location.href='login.html'">
+        <i class="fas fa-right-to-bracket"></i><br>
+        Login CBT
+      </div>
+
+      <div class="menu-card" onclick="location.href='berlangsung.html'">
+        <i class="fas fa-clock"></i><br>
+        Kompetisi Berlangsung
+      </div>
+
+      <div class="menu-card" onclick="location.href='materi.html'">
+        <i class="fas fa-book-open"></i><br>
+        Materi Kompetisi
+      </div>
+
+      <div class="menu-card" onclick="location.href='pengumuman.html'">
+        <i class="fas fa-bullhorn"></i><br>
+        Pengumuman Kompetisi
+      </div>
+
+      <div class="menu-card" onclick="location.href='publikasi-prestasi.html'">
+        <i class="fas fa-trophy"></i><br>
+       publikasi Prestasi
+      </div>
+
+      <div class="menu-card" onclick="location.href='daftar.html'">
+        <i class="fas fa-clipboard-list"></i><br>
+        Daftar
+      </div>
+
+      <div class="menu-card" onclick="location.href='beasiswa.html'">
+        <i class="fas fa-graduation-cap"></i><br>
+        Beasiswa FLAN
+      </div>
+
+      <div class="menu-card" onclick="location.href='persiapan-osn.html'">
+        <i class="fas fa-medal"></i><br>
+        Persiapan OSN
+      </div>
+
+      <div class="menu-card" onclick="location.href='buku-panduan.html'">
+        <i class="fas fa-book"></i><br>
+        Buku Panduan
+      </div>
+
+      <div class="menu-card" onclick="location.href='info-kurasi.html'">
+        <i class="fas fa-filter"></i><br>
+        Informasi Kurasi
+      </div>
+
+      <div class="menu-card" onclick="location.href='faq.html'">
+        <i class="fas fa-circle-question"></i><br>
+        FAQ Center
+      </div>
+
+      <div class="menu-card" onclick="location.href='tentang-kami.html'">
+        <i class="fas fa-circle-question"></i><br>
+        tentang kami
+      </div>
+      
+      <div class="menu-card" onclick="location.href='kontak-panitia.html'">
+        <i class="fas fa-circle-question"></i><br>
+        Hubungi panitia
+       </div>
+       
+      <div class="menu-card" onclick="location.href='syarat-ketentuan.html'">
+        <i class="fas fa-circle-question"></i><br>
+        syarat dan ketentuan 
+       </div>
+       
+         <div class="menu-card" onclick="location.href='kebijakan-privasi.html'">
+        <i class="fas fa-circle-question"></i><br>
+        kebijakan privasi
+      </div>
+ 
+    </div>
+  </div>
+</div>
+
+<script>
+function openMenu(){
+  document.getElementById('modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMenu(){
+  document.getElementById('modal').classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+function openMenu(){
+  document.getElementById('modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMenu(){
+  document.getElementById('modal').classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+</script>
+
+</body>
+</html>
